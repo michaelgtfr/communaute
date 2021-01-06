@@ -22881,7 +22881,7 @@
 											"top": 399,
 											"width": 209.2060546875,
 											"height": 13,
-											"text": "AccountInformation"
+											"text": "AbstractAccountInformation"
 										},
 										{
 											"_type": "LabelView",
@@ -26859,7 +26859,7 @@
 											"top": 95,
 											"width": 209.2060546875,
 											"height": 13,
-											"text": "AccountInformation"
+											"text": "AbstractAccountInformation"
 										},
 										{
 											"_type": "LabelView",
@@ -28550,7 +28550,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "AccountInformation",
+					"name": "AbstractAccountInformation",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -42526,7 +42526,7 @@
 											"top": 199,
 											"width": 209.2060546875,
 											"height": 13,
-											"text": "AccountInformation"
+											"text": "AbtractAccountInformation"
 										},
 										{
 											"_type": "LabelView",
@@ -56010,7 +56010,7 @@
 											"top": 63,
 											"width": 209.2060546875,
 											"height": 13,
-											"text": "AccountInformation"
+											"text": "AbstractAccountInformation"
 										},
 										{
 											"_type": "LabelView",
