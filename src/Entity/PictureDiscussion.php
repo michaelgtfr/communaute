@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\PictureDiscussionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PictureDiscussionRepository::class)
  */
-class PictureDiscussion
+class PictureDiscussion extends AbstractFiles
 {
     /**
      * @ORM\Id
