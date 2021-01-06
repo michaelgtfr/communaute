@@ -15,7 +15,7 @@ abstract class AbstractLink extends AbstractComment
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $link;
+    protected $link;
 
     public function getLink(): ?string
     {

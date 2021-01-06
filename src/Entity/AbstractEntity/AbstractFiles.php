@@ -15,12 +15,12 @@ class AbstractFiles extends AbstractComment
     /**
      * @ORM\Column(type="string", length=60)
      */
-    private $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="string", length=4)
      */
-    private $extension;
+    protected $extension;
 
     public function getName(): ?string
     {

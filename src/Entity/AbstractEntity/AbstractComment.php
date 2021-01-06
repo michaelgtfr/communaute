@@ -10,7 +10,7 @@ abstract class AbstractComment
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $comment;
+    protected $comment;
 
     public function getComment(): ?string
     {
