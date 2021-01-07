@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractAccountInformation;
 use App\Repository\AdministratorRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=AdministratorRepository::class)
  */
-class Administrator
+class Administrator extends AbstractAccountInformation
 {
     /**
      * @ORM\Id

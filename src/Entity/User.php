@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractAccountInformation;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -10,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
  */
-class User implements UserInterface
+class User extends AbstractAccountInformation implements UserInterface
 {
     /**
      * @ORM\Id
