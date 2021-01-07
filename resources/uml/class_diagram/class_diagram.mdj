@@ -1147,7 +1147,7 @@
 											"top": 247,
 											"width": 239.8779296875,
 											"height": 13,
-											"text": "-like: array",
+											"text": "-likePost: array",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1417,7 +1417,7 @@
 											"top": 465,
 											"width": 239.8779296875,
 											"height": 13,
-											"text": "+getLike(): array",
+											"text": "+getLikePost(): array",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1435,7 +1435,7 @@
 											"top": 480,
 											"width": 239.8779296875,
 											"height": 13,
-											"text": "+setLike(integer: User): void",
+											"text": "+setLikePost(integer: User): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -10877,7 +10877,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2hzagEeJryEo="
 							},
-							"name": "like",
+							"name": "likePost",
 							"visibility": "private",
 							"type": "array"
 						}
@@ -11190,7 +11190,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2hzagEeJryEo="
 							},
-							"name": "getLike",
+							"name": "getLikePost",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -11209,7 +11209,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2hzagEeJryEo="
 							},
-							"name": "setLike",
+							"name": "setLikePost",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -42526,7 +42526,7 @@
 											"top": 199,
 											"width": 209.2060546875,
 											"height": 13,
-											"text": "AbtractAccountInformation"
+											"text": "AbstractAccountInformation"
 										},
 										{
 											"_type": "LabelView",
