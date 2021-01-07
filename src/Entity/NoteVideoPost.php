@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractNotePost;
 use App\Repository\NoteVideoPostRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=NoteVideoPostRepository::class)
  */
-class NoteVideoPost
+class NoteVideoPost extends AbstractNotePost
 {
     /**
      * @ORM\Id

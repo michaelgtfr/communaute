@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractNotePost;
 use App\Repository\NoteCommentPostRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=NoteCommentPostRepository::class)
  */
-class NoteCommentPost
+class NoteCommentPost extends AbstractNotePost
 {
     /**
      * @ORM\Id

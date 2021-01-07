@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="" />
+    <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Entity/NoteCommentPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteCommentPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/NoteLinkPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteLinkPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/NotePicturePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NotePicturePost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/NoteVideoPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteVideoPost.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,20 +18,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Entity/AbstractEntity/AbstractNotePost.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/NoteLinkPost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="187">
+              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding>
+                <element signature="e#30#77#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Post.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Entity/NoteCommentPost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="187">
+              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+              <folding>
+                <element signature="e#30#77#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,6 +66,10 @@
         <option value="$PROJECT_DIR$/src/Entity/PicturePost.php" />
         <option value="$PROJECT_DIR$/src/Entity/VideoPost.php" />
         <option value="$PROJECT_DIR$/src/Entity/AbstractEntity/AbstractNotePost.php" />
+        <option value="$PROJECT_DIR$/src/Entity/NoteVideoPost.php" />
+        <option value="$PROJECT_DIR$/src/Entity/NotePicturePost.php" />
+        <option value="$PROJECT_DIR$/src/Entity/NoteLinkPost.php" />
+        <option value="$PROJECT_DIR$/src/Entity/NoteCommentPost.php" />
       </list>
     </option>
   </component>
@@ -246,12 +261,12 @@
       <updated>1609951841141</updated>
       <workItem from="1609951885349" duration="7313000" />
       <workItem from="1610036709767" duration="226000" />
-      <workItem from="1610038352353" duration="1649000" />
+      <workItem from="1610038352353" duration="1856000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9335000" />
+    <option name="totallyTimeSpent" value="9542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="760" y="-8" width="783" height="839" extended-state="0" />
@@ -441,6 +456,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NotePicturePost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="e#30#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NoteVideoPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding>
+            <element signature="e#30#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NoteLinkPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding>
+            <element signature="e#30#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/NoteCommentPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="e#30#77#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
