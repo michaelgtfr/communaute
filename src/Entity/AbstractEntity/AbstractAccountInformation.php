@@ -38,6 +38,7 @@ abstract class AbstractAccountInformation
     protected $dateLastConnection;
 
     /**
+     * @var string The hashed password
      * @ORM\Column(type="string", length=60)
      */
     protected $password;
@@ -116,6 +117,9 @@ abstract class AbstractAccountInformation
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
     public function getPassword(): ?string
     {
         return $this->password;
