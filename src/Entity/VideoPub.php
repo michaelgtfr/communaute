@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\VideoPubRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=VideoPubRepository::class)
  */
-class VideoPub
+class VideoPub extends AbstractFiles
 {
     /**
      * @ORM\Id

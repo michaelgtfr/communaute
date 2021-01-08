@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractComment;
 use App\Repository\CommentPubRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommentPubRepository::class)
  */
-class CommentPub
+class CommentPub extends AbstractComment
 {
     /**
      * @ORM\Id

@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractLink;
 use App\Repository\LinkPubRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LinkPubRepository::class)
  */
-class LinkPub
+class LinkPub extends AbstractLink
 {
     /**
      * @ORM\Id
