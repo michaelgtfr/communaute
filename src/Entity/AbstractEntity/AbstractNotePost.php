@@ -10,7 +10,7 @@ namespace App\Entity\AbstractEntity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-class AbstractNotePost
+abstract class AbstractNotePost
 {
     /**
      * @ORM\Column(type="datetime")

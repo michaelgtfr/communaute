@@ -10,7 +10,7 @@ namespace App\Entity\AbstractEntity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-class AbstractFiles extends AbstractComment
+abstract class AbstractFiles extends AbstractComment
 {
     /**
      * @ORM\Column(type="string", length=60)
