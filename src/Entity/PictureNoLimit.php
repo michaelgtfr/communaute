@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\PictureNoLimitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PictureNoLimitRepository::class)
  */
-class PictureNoLimit
+class PictureNoLimit extends AbstractFiles
 {
     /**
      * @ORM\Id

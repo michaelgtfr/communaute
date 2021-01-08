@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractLink;
 use App\Repository\LinkNoLimitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=LinkNoLimitRepository::class)
  */
-class LinkNoLimit
+class LinkNoLimit extends AbstractLink
 {
     /**
      * @ORM\Id

@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractComment;
 use App\Repository\CommentNoLimitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CommentNoLimitRepository::class)
  */
-class CommentNoLimit
+class CommentNoLimit extends AbstractComment
 {
     /**
      * @ORM\Id

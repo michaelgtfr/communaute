@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\VideoNoLimitRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=VideoNoLimitRepository::class)
  */
-class VideoNoLimit
+class VideoNoLimit extends AbstractFiles
 {
     /**
      * @ORM\Id
