@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\PictureUserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=PictureUserRepository::class)
  */
-class PictureUser
+class PictureUser extends AbstractFiles
 {
     /**
      * @ORM\Id
