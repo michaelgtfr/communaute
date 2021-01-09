@@ -27,6 +27,11 @@ class Discussion
      */
     private $userId;
 
+    /**
+     * @ORM\OneToOne(targetEntity=CommentDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     */
+    private $commentDiscussion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Discussion
     public function setUserId(?User $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getCommentDiscussion(): ?CommentDiscussion
+    {
+        return $this->commentDiscussion;
+    }
+
+    public function setCommentDiscussion(?CommentDiscussion $commentDiscussion): self
+    {
+        $this->commentDiscussion = $commentDiscussion;
 
         return $this;
     }
