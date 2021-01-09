@@ -63,10 +63,16 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $accountParameterId;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PictureUser::class, mappedBy="userId", orphanRemoval=true)
+     */
+    private $pictureUserId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
         $this->discussionId = new ArrayCollection();
+        $this->pictureUserId = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -231,6 +237,36 @@ class User extends AbstractAccountInformation implements UserInterface
     public function setAccountParameterId(AccountParameter $accountParameterId): self
     {
         $this->accountParameterId = $accountParameterId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PictureUser[]
+     */
+    public function getPictureUserId(): Collection
+    {
+        return $this->pictureUserId;
+    }
+
+    public function addPictureUserId(PictureUser $pictureUserId): self
+    {
+        if (!$this->pictureUserId->contains($pictureUserId)) {
+            $this->pictureUserId[] = $pictureUserId;
+            $pictureUserId->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removePictureUserId(PictureUser $pictureUserId): self
+    {
+        if ($this->pictureUserId->removeElement($pictureUserId)) {
+            // set the owning side to null (unless already changed)
+            if ($pictureUserId->getUserId() === $this) {
+                $pictureUserId->setUserId(null);
+            }
+        }
 
         return $this;
     }
