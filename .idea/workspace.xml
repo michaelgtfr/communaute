@@ -21,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/Entity/Post.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="318">
-              <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+              <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/Entity/LinkPost.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="318">
-              <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding>
                 <element signature="e#30#73#0#PHP" expanded="true" />
               </folding>
@@ -261,12 +261,12 @@
       <workItem from="1610100425674" duration="2119000" />
       <workItem from="1610123719201" duration="1746000" />
       <workItem from="1610128348784" duration="223000" />
-      <workItem from="1610184916028" duration="2392000" />
+      <workItem from="1610184916028" duration="2989000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17161000" />
+    <option name="totallyTimeSpent" value="17758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -594,14 +594,14 @@
     <entry file="file://$PROJECT_DIR$/src/Entity/Post.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
-          <caret line="41" column="7" lean-forward="true" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/LinkPost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
-          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
             <element signature="e#30#73#0#PHP" expanded="true" />
           </folding>

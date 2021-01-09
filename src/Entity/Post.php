@@ -42,6 +42,11 @@ class Post
      */
     private $linkPost;
 
+    /**
+     * @ORM\OneToOne(targetEntity=PicturePost::class, inversedBy="postId", cascade={"persist", "remove"})
+     */
+    private $picturePost;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Post
     public function setLinkPost(?LinkPost $linkPost): self
     {
         $this->linkPost = $linkPost;
+
+        return $this;
+    }
+
+    public function getPicturePost(): ?PicturePost
+    {
+        return $this->picturePost;
+    }
+
+    public function setPicturePost(?PicturePost $picturePost): self
+    {
+        $this->picturePost = $picturePost;
 
         return $this;
     }
