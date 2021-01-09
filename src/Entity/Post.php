@@ -47,6 +47,11 @@ class Post
      */
     private $picturePost;
 
+    /**
+     * @ORM\OneToOne(targetEntity=VideoPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     */
+    private $videoPost;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Post
     public function setPicturePost(?PicturePost $picturePost): self
     {
         $this->picturePost = $picturePost;
+
+        return $this;
+    }
+
+    public function getVideoPost(): ?VideoPost
+    {
+        return $this->videoPost;
+    }
+
+    public function setVideoPost(?VideoPost $videoPost): self
+    {
+        $this->videoPost = $videoPost;
 
         return $this;
     }
