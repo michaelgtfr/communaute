@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity\AbstractLink;
 use App\Repository\LinkPostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class LinkPost extends AbstractLink
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="linkPost", cascade={"persist", "remove"})
      */
     private $postId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=NoteLinkPost::class, mappedBy="linkPostId")
+     */
+    private $noteLinkPostId;
+
+    public function __construct()
+    {
+        $this->noteLinkPostId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -46,6 +58,36 @@ class LinkPost extends AbstractLink
         }
 
         $this->postId = $postId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NoteLinkPost[]
+     */
+    public function getNoteLinkPostId(): Collection
+    {
+        return $this->noteLinkPostId;
+    }
+
+    public function addNoteLinkPostId(NoteLinkPost $noteLinkPostId): self
+    {
+        if (!$this->noteLinkPostId->contains($noteLinkPostId)) {
+            $this->noteLinkPostId[] = $noteLinkPostId;
+            $noteLinkPostId->setLinkPostId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoteLinkPostId(NoteLinkPost $noteLinkPostId): self
+    {
+        if ($this->noteLinkPostId->removeElement($noteLinkPostId)) {
+            // set the owning side to null (unless already changed)
+            if ($noteLinkPostId->getLinkPostId() === $this) {
+                $noteLinkPostId->setLinkPostId(null);
+            }
+        }
 
         return $this;
     }

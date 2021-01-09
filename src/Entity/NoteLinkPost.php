@@ -18,8 +18,25 @@ class NoteLinkPost extends AbstractNotePost
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=LinkPost::class, inversedBy="noteLinkPostId")
+     */
+    private $linkPostId;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getLinkPostId(): ?LinkPost
+    {
+        return $this->linkPostId;
+    }
+
+    public function setLinkPostId(?LinkPost $linkPostId): self
+    {
+        $this->linkPostId = $linkPostId;
+
+        return $this;
     }
 }
