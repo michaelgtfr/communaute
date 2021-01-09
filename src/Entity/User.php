@@ -68,11 +68,17 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $pictureUserId;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Friends::class, mappedBy="userId", orphanRemoval=true)
+     */
+    private $friendsId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
         $this->discussionId = new ArrayCollection();
         $this->pictureUserId = new ArrayCollection();
+        $this->friendsId = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -265,6 +271,36 @@ class User extends AbstractAccountInformation implements UserInterface
             // set the owning side to null (unless already changed)
             if ($pictureUserId->getUserId() === $this) {
                 $pictureUserId->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Friends[]
+     */
+    public function getFriendsId(): Collection
+    {
+        return $this->friendsId;
+    }
+
+    public function addFriendsId(Friends $friendsId): self
+    {
+        if (!$this->friendsId->contains($friendsId)) {
+            $this->friendsId[] = $friendsId;
+            $friendsId->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFriendsId(Friends $friendsId): self
+    {
+        if ($this->friendsId->removeElement($friendsId)) {
+            // set the owning side to null (unless already changed)
+            if ($friendsId->getUserId() === $this) {
+                $friendsId->setUserId(null);
             }
         }
 

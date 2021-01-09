@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="" />
+    <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,12 +237,12 @@
       <workItem from="1610100425674" duration="2119000" />
       <workItem from="1610123719201" duration="1746000" />
       <workItem from="1610128348784" duration="223000" />
-      <workItem from="1610184916028" duration="6866000" />
+      <workItem from="1610184916028" duration="6918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21635000" />
+    <option name="totallyTimeSpent" value="21687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
