@@ -27,6 +27,11 @@ class Contact
      */
     private $content;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class)
+     */
+    private $existAccount;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Contact
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getExistAccount(): ?User
+    {
+        return $this->existAccount;
+    }
+
+    public function setExistAccount(?User $existAccount): self
+    {
+        $this->existAccount = $existAccount;
 
         return $this;
     }
