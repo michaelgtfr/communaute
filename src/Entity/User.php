@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity\AbstractAccountInformation;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -44,6 +46,16 @@ class User extends AbstractAccountInformation implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="userId")
+     */
+    private $postId;
+
+    public function __construct()
+    {
+        $this->postId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +147,36 @@ class User extends AbstractAccountInformation implements UserInterface
     public function setAddress(?string $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getPostId(): Collection
+    {
+        return $this->postId;
+    }
+
+    public function addPostId(Post $postId): self
+    {
+        if (!$this->postId->contains($postId)) {
+            $this->postId[] = $postId;
+            $postId->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removePostId(Post $postId): self
+    {
+        if ($this->postId->removeElement($postId)) {
+            // set the owning side to null (unless already changed)
+            if ($postId->getUserId() === $this) {
+                $postId->setUserId(null);
+            }
+        }
 
         return $this;
     }

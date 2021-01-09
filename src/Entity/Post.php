@@ -27,6 +27,11 @@ class Post
      */
     private $likePost = [];
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="postId")
+     */
+    private $userId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Post
     public function setLikePost(?array $likePost): self
     {
         $this->likePost = $likePost;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }
