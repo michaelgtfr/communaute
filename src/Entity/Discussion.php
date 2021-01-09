@@ -22,6 +22,11 @@ class Discussion
      */
     private $dateCreate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="discussionId")
+     */
+    private $userId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class Discussion
     public function setDateCreate(\DateTimeInterface $dateCreate): self
     {
         $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }

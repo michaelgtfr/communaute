@@ -52,9 +52,15 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $postId;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="userId")
+     */
+    private $discussionId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
+        $this->discussionId = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,6 +181,36 @@ class User extends AbstractAccountInformation implements UserInterface
             // set the owning side to null (unless already changed)
             if ($postId->getUserId() === $this) {
                 $postId->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Discussion[]
+     */
+    public function getDiscussionId(): Collection
+    {
+        return $this->discussionId;
+    }
+
+    public function addDiscussionId(Discussion $discussionId): self
+    {
+        if (!$this->discussionId->contains($discussionId)) {
+            $this->discussionId[] = $discussionId;
+            $discussionId->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDiscussionId(Discussion $discussionId): self
+    {
+        if ($this->discussionId->removeElement($discussionId)) {
+            // set the owning side to null (unless already changed)
+            if ($discussionId->getUserId() === $this) {
+                $discussionId->setUserId(null);
             }
         }
 
