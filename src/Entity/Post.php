@@ -32,6 +32,11 @@ class Post
      */
     private $userId;
 
+    /**
+     * @ORM\OneToOne(targetEntity=CommentPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     */
+    private $commentPost;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Post
     public function setUserId(?User $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getCommentPost(): ?CommentPost
+    {
+        return $this->commentPost;
+    }
+
+    public function setCommentPost(?CommentPost $commentPost): self
+    {
+        $this->commentPost = $commentPost;
 
         return $this;
     }
