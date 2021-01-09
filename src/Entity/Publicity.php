@@ -42,6 +42,12 @@ class Publicity
      */
     private $status;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Editor::class, inversedBy="publicity")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $editorId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Publicity
     public function setStatus(int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getEditorId(): ?Editor
+    {
+        return $this->editorId;
+    }
+
+    public function setEditorId(?Editor $editorId): self
+    {
+        $this->editorId = $editorId;
 
         return $this;
     }
