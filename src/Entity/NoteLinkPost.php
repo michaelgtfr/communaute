@@ -20,6 +20,7 @@ class NoteLinkPost extends AbstractNotePost
 
     /**
      * @ORM\ManyToOne(targetEntity=LinkPost::class, inversedBy="noteLinkPostId")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $linkPostId;
 
