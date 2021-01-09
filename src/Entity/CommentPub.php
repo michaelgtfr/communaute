@@ -18,8 +18,26 @@ class CommentPub extends AbstractComment
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Publicity::class, inversedBy="commentPub")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $publicityId;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getPublicityId(): ?Publicity
+    {
+        return $this->publicityId;
+    }
+
+    public function setPublicityId(?Publicity $publicityId): self
+    {
+        $this->publicityId = $publicityId;
+
+        return $this;
     }
 }
