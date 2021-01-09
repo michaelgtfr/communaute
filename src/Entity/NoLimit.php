@@ -32,6 +32,11 @@ class NoLimit
      */
     private $commentNoLimit;
 
+    /**
+     * @ORM\OneToOne(targetEntity=LinkNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     */
+    private $linkNoLimit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class NoLimit
     public function setCommentNoLimit(?CommentNoLimit $commentNoLimit): self
     {
         $this->commentNoLimit = $commentNoLimit;
+
+        return $this;
+    }
+
+    public function getLinkNoLimit(): ?LinkNoLimit
+    {
+        return $this->linkNoLimit;
+    }
+
+    public function setLinkNoLimit(?LinkNoLimit $linkNoLimit): self
+    {
+        $this->linkNoLimit = $linkNoLimit;
 
         return $this;
     }
