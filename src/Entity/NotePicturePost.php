@@ -20,7 +20,6 @@ class NotePicturePost extends AbstractNotePost
 
     /**
      * @ORM\ManyToOne(targetEntity=PicturePost::class, inversedBy="notePicturePostId")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $picturePostId;
 

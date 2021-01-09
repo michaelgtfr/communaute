@@ -27,6 +27,7 @@ class VideoPost extends AbstractFiles
 
     /**
      * @ORM\OneToMany(targetEntity=NoteVideoPost::class, mappedBy="videoPostId")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $noteVideoPostId;
 
@@ -34,7 +35,6 @@ class VideoPost extends AbstractFiles
     {
         $this->noteVideoPostId = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {

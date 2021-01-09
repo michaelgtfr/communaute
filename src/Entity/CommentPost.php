@@ -27,6 +27,7 @@ class CommentPost extends AbstractComment
 
     /**
      * @ORM\OneToMany(targetEntity=NoteCommentPost::class, mappedBy="commentPostId")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $noteCommentPostId;
 

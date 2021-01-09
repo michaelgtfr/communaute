@@ -27,6 +27,7 @@ class LinkPost extends AbstractLink
 
     /**
      * @ORM\OneToMany(targetEntity=NoteLinkPost::class, mappedBy="linkPostId")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $noteLinkPostId;
 

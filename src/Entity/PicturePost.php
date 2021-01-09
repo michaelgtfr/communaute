@@ -27,6 +27,7 @@ class PicturePost extends AbstractFiles
 
     /**
      * @ORM\OneToMany(targetEntity=NotePicturePost::class, mappedBy="picturePostId")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $notePicturePostId;
 

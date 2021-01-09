@@ -20,7 +20,6 @@ class NoteCommentPost extends AbstractNotePost
 
     /**
      * @ORM\ManyToOne(targetEntity=CommentPost::class, inversedBy="noteCommentPostId")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $commentPostId;
 

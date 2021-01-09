@@ -29,26 +29,31 @@ class Post
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="postId")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $userId;
 
     /**
      * @ORM\OneToOne(targetEntity=CommentPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $commentPost;
 
     /**
      * @ORM\OneToOne(targetEntity=LinkPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $linkPost;
 
     /**
      * @ORM\OneToOne(targetEntity=PicturePost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $picturePost;
 
     /**
      * @ORM\OneToOne(targetEntity=VideoPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
      */
     private $videoPost;
 

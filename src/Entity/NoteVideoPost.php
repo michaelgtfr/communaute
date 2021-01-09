@@ -20,7 +20,6 @@ class NoteVideoPost extends AbstractNotePost
 
     /**
      * @ORM\ManyToOne(targetEntity=VideoPost::class, inversedBy="noteVideoPostId")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $videoPostId;
 
