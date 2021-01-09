@@ -22,6 +22,11 @@ class NoLimit
      */
     private $dateCreate;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="noLimitId")
+     */
+    private $userId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class NoLimit
     public function setDateCreate(\DateTimeInterface $dateCreate): self
     {
         $this->dateCreate = $dateCreate;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }

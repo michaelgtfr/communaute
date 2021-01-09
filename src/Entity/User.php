@@ -73,11 +73,17 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $friendsId;
 
+    /**
+     * @ORM\OneToMany(targetEntity=NoLimit::class, mappedBy="userId")
+     */
+    private $noLimitId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
         $this->discussionId = new ArrayCollection();
         $this->pictureUserId = new ArrayCollection();
+        $this->noLimitId = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -284,6 +290,36 @@ class User extends AbstractAccountInformation implements UserInterface
     public function setFriendsId(?Friends $friendsId): self
     {
         $this->friendsId = $friendsId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NoLimit[]
+     */
+    public function getNoLimitId(): Collection
+    {
+        return $this->noLimitId;
+    }
+
+    public function addNoLimitId(NoLimit $noLimitId): self
+    {
+        if (!$this->noLimitId->contains($noLimitId)) {
+            $this->noLimitId[] = $noLimitId;
+            $noLimitId->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoLimitId(NoLimit $noLimitId): self
+    {
+        if ($this->noLimitId->removeElement($noLimitId)) {
+            // set the owning side to null (unless already changed)
+            if ($noLimitId->getUserId() === $this) {
+                $noLimitId->setUserId(null);
+            }
+        }
 
         return $this;
     }
