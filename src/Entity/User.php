@@ -68,6 +68,11 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $pictureUserId;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Friends::class, inversedBy="userId", cascade={"persist", "remove"})
+     */
+    private $friendsId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
@@ -267,6 +272,18 @@ class User extends AbstractAccountInformation implements UserInterface
                 $pictureUserId->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFriendsId(): ?Friends
+    {
+        return $this->friendsId;
+    }
+
+    public function setFriendsId(?Friends $friendsId): self
+    {
+        $this->friendsId = $friendsId;
 
         return $this;
     }

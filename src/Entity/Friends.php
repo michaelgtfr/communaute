@@ -27,6 +27,11 @@ class Friends
      */
     private $friendRequest = [];
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="friendsId", cascade={"persist", "remove"})
+     */
+    private $userId;
+
 
     public function getId(): ?int
     {
@@ -53,6 +58,28 @@ class Friends
     public function setFriendRequest(?array $friendRequest): self
     {
         $this->friendRequest = $friendRequest;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($userId === null && $this->userId !== null) {
+            $this->userId->setFriendsId(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($userId !== null && $userId->getFriendsId() !== $this) {
+            $userId->setFriendsId($this);
+        }
+
+        $this->userId = $userId;
 
         return $this;
     }
