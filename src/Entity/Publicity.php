@@ -55,9 +55,15 @@ class Publicity
      */
     private $picturePub;
 
+    /**
+     * @ORM\OneToMany(targetEntity=VideoPub::class, mappedBy="publicityId", orphanRemoval=true)
+     */
+    private $videoPub;
+
     public function __construct()
     {
         $this->picturePub = new ArrayCollection();
+        $this->videoPub = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,6 +167,36 @@ class Publicity
             // set the owning side to null (unless already changed)
             if ($picturePub->getPublicityId() === $this) {
                 $picturePub->setPublicityId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|VideoPub[]
+     */
+    public function getVideoPub(): Collection
+    {
+        return $this->videoPub;
+    }
+
+    public function addVideoPub(VideoPub $videoPub): self
+    {
+        if (!$this->videoPub->contains($videoPub)) {
+            $this->videoPub[] = $videoPub;
+            $videoPub->setPublicityId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideoPub(VideoPub $videoPub): self
+    {
+        if ($this->videoPub->removeElement($videoPub)) {
+            // set the owning side to null (unless already changed)
+            if ($videoPub->getPublicityId() === $this) {
+                $videoPub->setPublicityId(null);
             }
         }
 
