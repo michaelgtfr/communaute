@@ -18,8 +18,25 @@ class NoteCommentPost extends AbstractNotePost
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=CommentPost::class, inversedBy="noteCommentPostId")
+     */
+    private $commentPostId;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCommentPostId(): ?CommentPost
+    {
+        return $this->commentPostId;
+    }
+
+    public function setCommentPostId(?CommentPost $commentPostId): self
+    {
+        $this->commentPostId = $commentPostId;
+
+        return $this;
     }
 }
