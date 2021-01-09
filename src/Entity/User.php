@@ -57,6 +57,12 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $discussionId;
 
+    /**
+     * @ORM\OneToOne(targetEntity=AccountParameter::class, inversedBy="userId", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $accountParameterId;
+
     public function __construct()
     {
         $this->postId = new ArrayCollection();
@@ -213,6 +219,18 @@ class User extends AbstractAccountInformation implements UserInterface
                 $discussionId->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAccountParameterId(): ?AccountParameter
+    {
+        return $this->accountParameterId;
+    }
+
+    public function setAccountParameterId(AccountParameter $accountParameterId): self
+    {
+        $this->accountParameterId = $accountParameterId;
 
         return $this;
     }
