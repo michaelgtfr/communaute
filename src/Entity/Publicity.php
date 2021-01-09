@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PublicityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +49,16 @@ class Publicity
      * @ORM\JoinColumn(nullable=false)
      */
     private $editorId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=PicturePub::class, mappedBy="publicityId", orphanRemoval=true)
+     */
+    private $picturePub;
+
+    public function __construct()
+    {
+        $this->picturePub = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,6 +133,36 @@ class Publicity
     public function setEditorId(?Editor $editorId): self
     {
         $this->editorId = $editorId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PicturePub[]
+     */
+    public function getPicturePub(): Collection
+    {
+        return $this->picturePub;
+    }
+
+    public function addPicturePub(PicturePub $picturePub): self
+    {
+        if (!$this->picturePub->contains($picturePub)) {
+            $this->picturePub[] = $picturePub;
+            $picturePub->setPublicityId($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicturePub(PicturePub $picturePub): self
+    {
+        if ($this->picturePub->removeElement($picturePub)) {
+            // set the owning side to null (unless already changed)
+            if ($picturePub->getPublicityId() === $this) {
+                $picturePub->setPublicityId(null);
+            }
+        }
 
         return $this;
     }
