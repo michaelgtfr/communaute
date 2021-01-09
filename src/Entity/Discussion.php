@@ -42,6 +42,11 @@ class Discussion
      */
     private $videoDiscussion;
 
+    /**
+     * @ORM\OneToOne(targetEntity=PictureDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     */
+    private $pictureDiscussion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Discussion
     public function setVideoDiscussion(?VideoDiscussion $videoDiscussion): self
     {
         $this->videoDiscussion = $videoDiscussion;
+
+        return $this;
+    }
+
+    public function getPictureDiscussion(): ?PictureDiscussion
+    {
+        return $this->pictureDiscussion;
+    }
+
+    public function setPictureDiscussion(?PictureDiscussion $pictureDiscussion): self
+    {
+        $this->pictureDiscussion = $pictureDiscussion;
 
         return $this;
     }
