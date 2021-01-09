@@ -37,6 +37,11 @@ class NoLimit
      */
     private $linkNoLimit;
 
+    /**
+     * @ORM\OneToOne(targetEntity=VideoNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     */
+    private $videoNoLimit;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class NoLimit
     public function setLinkNoLimit(?LinkNoLimit $linkNoLimit): self
     {
         $this->linkNoLimit = $linkNoLimit;
+
+        return $this;
+    }
+
+    public function getVideoNoLimit(): ?VideoNoLimit
+    {
+        return $this->videoNoLimit;
+    }
+
+    public function setVideoNoLimit(?VideoNoLimit $videoNoLimit): self
+    {
+        $this->videoNoLimit = $videoNoLimit;
 
         return $this;
     }
