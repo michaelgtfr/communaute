@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\PicturePostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class PicturePost extends AbstractFiles
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="picturePost", cascade={"persist", "remove"})
      */
     private $postId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=NotePicturePost::class, mappedBy="picturePostId")
+     */
+    private $notePicturePostId;
+
+    public function __construct()
+    {
+        $this->notePicturePostId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -46,6 +58,36 @@ class PicturePost extends AbstractFiles
         }
 
         $this->postId = $postId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NotePicturePost[]
+     */
+    public function getNotePicturePostId(): Collection
+    {
+        return $this->notePicturePostId;
+    }
+
+    public function addNotePicturePostId(NotePicturePost $notePicturePostId): self
+    {
+        if (!$this->notePicturePostId->contains($notePicturePostId)) {
+            $this->notePicturePostId[] = $notePicturePostId;
+            $notePicturePostId->setPicturePostId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNotePicturePostId(NotePicturePost $notePicturePostId): self
+    {
+        if ($this->notePicturePostId->removeElement($notePicturePostId)) {
+            // set the owning side to null (unless already changed)
+            if ($notePicturePostId->getPicturePostId() === $this) {
+                $notePicturePostId->setPicturePostId(null);
+            }
+        }
 
         return $this;
     }
