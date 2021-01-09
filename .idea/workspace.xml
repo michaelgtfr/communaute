@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Entity/NoteCommentPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteCommentPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/NoteLinkPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteLinkPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/NotePicturePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NotePicturePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/NoteVideoPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/NoteVideoPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/CommentDiscussion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CommentDiscussion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Discussion.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Discussion.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,12 +17,21 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Entity/NoteLinkPost.php">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Discussion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="408">
+              <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/CommentDiscussion.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding>
-                <element signature="e#30#77#0#PHP" expanded="true" />
+                <element signature="e#30#76#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -253,12 +260,12 @@
       <workItem from="1610100425674" duration="2119000" />
       <workItem from="1610123719201" duration="1746000" />
       <workItem from="1610128348784" duration="223000" />
-      <workItem from="1610184916028" duration="6175000" />
+      <workItem from="1610184916028" duration="6390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20944000" />
+    <option name="totallyTimeSpent" value="21159000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -313,16 +320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/CommentDiscussion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-          <folding>
-            <element signature="e#30#76#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -605,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Discussion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/NoteVideoPost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -634,11 +624,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/NoteLinkPost.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        <state relative-caret-position="573">
+          <caret line="40" column="21" lean-forward="true" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
           <folding>
             <element signature="e#30#77#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/CommentDiscussion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="e#30#76#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Discussion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
         </state>
       </provider>
     </entry>

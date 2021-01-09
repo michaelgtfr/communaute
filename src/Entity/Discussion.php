@@ -32,6 +32,11 @@ class Discussion
      */
     private $commentDiscussion;
 
+    /**
+     * @ORM\OneToOne(targetEntity=LinkDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     */
+    private $linkDiscussion;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Discussion
     public function setCommentDiscussion(?CommentDiscussion $commentDiscussion): self
     {
         $this->commentDiscussion = $commentDiscussion;
+
+        return $this;
+    }
+
+    public function getLinkDiscussion(): ?LinkDiscussion
+    {
+        return $this->linkDiscussion;
+    }
+
+    public function setLinkDiscussion(?LinkDiscussion $linkDiscussion): self
+    {
+        $this->linkDiscussion = $linkDiscussion;
 
         return $this;
     }
