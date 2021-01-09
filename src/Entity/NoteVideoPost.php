@@ -18,8 +18,26 @@ class NoteVideoPost extends AbstractNotePost
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=VideoPost::class, inversedBy="noteVideoPostId")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $videoPostId;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getVideoPostId(): ?VideoPost
+    {
+        return $this->videoPostId;
+    }
+
+    public function setVideoPostId(?VideoPost $videoPostId): self
+    {
+        $this->videoPostId = $videoPostId;
+
+        return $this;
     }
 }

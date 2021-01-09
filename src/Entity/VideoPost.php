@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity\AbstractFiles;
 use App\Repository\VideoPostRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class VideoPost extends AbstractFiles
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="videoPost", cascade={"persist", "remove"})
      */
     private $postId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=NoteVideoPost::class, mappedBy="videoPostId")
+     */
+    private $noteVideoPostId;
+
+    public function __construct()
+    {
+        $this->noteVideoPostId = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -47,6 +59,36 @@ class VideoPost extends AbstractFiles
         }
 
         $this->postId = $postId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NoteVideoPost[]
+     */
+    public function getNoteVideoPostId(): Collection
+    {
+        return $this->noteVideoPostId;
+    }
+
+    public function addNoteVideoPostId(NoteVideoPost $noteVideoPostId): self
+    {
+        if (!$this->noteVideoPostId->contains($noteVideoPostId)) {
+            $this->noteVideoPostId[] = $noteVideoPostId;
+            $noteVideoPostId->setVideoPostId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoteVideoPostId(NoteVideoPost $noteVideoPostId): self
+    {
+        if ($this->noteVideoPostId->removeElement($noteVideoPostId)) {
+            // set the owning side to null (unless already changed)
+            if ($noteVideoPostId->getVideoPostId() === $this) {
+                $noteVideoPostId->setVideoPostId(null);
+            }
+        }
 
         return $this;
     }
