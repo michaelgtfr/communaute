@@ -61,7 +61,7 @@ class Publicity
     private $videoPub;
 
     /**
-     * @ORM\OneToMany(targetEntity=LinkPub::class, mappedBy="publicictyId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=LinkPub::class, mappedBy="publicityId", orphanRemoval=true)
      */
     private $linkPub;
 
@@ -227,7 +227,7 @@ class Publicity
     {
         if (!$this->linkPub->contains($linkPub)) {
             $this->linkPub[] = $linkPub;
-            $linkPub->setPublicictyId($this);
+            $linkPub->setPublicityId($this);
         }
 
         return $this;
@@ -237,8 +237,8 @@ class Publicity
     {
         if ($this->linkPub->removeElement($linkPub)) {
             // set the owning side to null (unless already changed)
-            if ($linkPub->getPublicictyId() === $this) {
-                $linkPub->setPublicictyId(null);
+            if ($linkPub->getPublicityId() === $this) {
+                $linkPub->setPublicityId(null);
             }
         }
 

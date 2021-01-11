@@ -22,21 +22,21 @@ class LinkPub extends AbstractLink
      * @ORM\ManyToOne(targetEntity=Publicity::class, inversedBy="linkPub")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $publicictyId;
+    private $publicityId;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPublicictyId(): ?Publicity
+    public function getPublicityId(): ?Publicity
     {
-        return $this->publicictyId;
+        return $this->publicityId;
     }
 
-    public function setPublicictyId(?Publicity $publicictyId): self
+    public function setPublicityId(?Publicity $publicityId): self
     {
-        $this->publicictyId = $publicictyId;
+        $this->publicityId = $publicityId;
 
         return $this;
     }
