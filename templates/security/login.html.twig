@@ -4,41 +4,78 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
 {% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <section class="connection container-fluid m-5">
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+                    <label class="mt-4" for="inputUsername">Pseudo/Email</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
+                    <label class="mt-4" for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <div class="checkbox m-3 text-center">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                        </label>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-lg btn-primary" type="submit">
+                            Valider
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center mt-4">Je n'ai pas de compte</p>
+                <div class="text-center">
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        Inscription
+                    </button>
+            </div>
         </div>
-    {% endif %}
+    </section>
+    <section class="presentation container-fluid mt-5">
+        <div class="row align-items-center">
+            <div class="col-sm-6 text-center">
+                <p class="question">Qu'est ce que "Communauté"?</p>
+            </div>
+            <div class="col-sm-6">
+                <p class="response text-justify p-5">Communauté est un réseau social de communication et d'échange permettant aux personnes d'envoyer des messages, images ou vidéos à ces amis, famille,... accepté par celui-ci permettant aussi de voir leurs articles posté.Vous pourrez aussi consulter les journaux, participer au discution dont le sujet change tous les jours ou participer au "no limit", permettent à chacun de poster se qu'il veut pendant 24h. </p>
+            </div>
+            <div class="col-sm-6">
+                <p class="response text-justify p-5">Plusieurs raisons on poussé à la création de communauté. Vos informations données servent à améliorer l'expérience utilisateur, il ne sont en aucun cas utilisé par d'autres sites externe. La sécurité des enfants par la mise en place de TAG et de filtration permettent grâce à l'age de voir tel sujet ou telle page. La sécurité des utilisateurs contre le harcèlement, le terrorisme et autres problèmes pouvant être rencontré des autres sites web passe par une surveillance des posts par les administrateurs du site et les services de sécurité française.  </p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <p class="question p-5">Pourquoi avoir créé Communauté ?</p>
+            </div>
+            <div class="col-sm-6 text-center">
+                <p class="question p-5">Les pubs pour entretenir le site !</p>
+            </div>
+            <div class="col-sm-6 text-justify">
+                <p class="response p-5">Pour permettre au site d'être gratuit et entretenu, nous utilisons un système de publicité. Ces publicités ne sont pas intrusif, une publicité par page choisie par vos soins grâce aux paramètres de votre compte vous permettant d'avoir des publicités sur les sujet qui vous intéresse.</p>
+            </div>
+        </div>
+    </section>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
 
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
-    </div>
-
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}
 
 {% block javascripts %}
     {{  parent() }}
+    {{ encore_entry_script_tags('login') }}
 {% endblock %}

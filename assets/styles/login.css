@@ -1,0 +1,42 @@
+body
+{
+    background: radial-gradient(#159296,#9978ff);
+
+}
+
+.connection
+{
+    background-image: url("../../public/img/communaute.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card
+{
+    display: block;
+    width: 335px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    border: black 1px solid;
+}
+
+.btn-primary
+{
+    background-color: #0c59cf;
+    border: none;
+}
+
+.question
+{
+    display: inline;
+    color: white;
+    font-size: 72px;
+    font-family: Helvetica, sans-serif;
+}
+
+.response
+{
+    color: white;
+    font-size: 30px;
+    font-family: Helvetica, sans-serif;
+}
