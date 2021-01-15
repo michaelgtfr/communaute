@@ -1,1 +1,18 @@
 @import "~bootstrap";
+
+.nav-link
+{
+    color: white;
+}
+
+.footer
+{
+    background-color: #666666;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.copyright
+{
+    color: white;
+}

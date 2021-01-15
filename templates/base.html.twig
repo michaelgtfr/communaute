@@ -9,7 +9,7 @@
     </head>
     <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Communauté</a>
+        <a class="navbar-brand" href="{{ path('app_login') }}">Communauté</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,6 +22,36 @@
         </div>
     </nav>
         {% block body %}{% endblock %}
+    <footer class="container-fluid">
+        <div class="footer row">
+            <ul class="nav col-sm-4 p-4">
+                <li class="nav-item col-sm-10 offset-sm-2">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+                <li class="nav-item col-sm-10 offset-sm-2">
+                    <a class="nav-link" href="#">Inscription</a>
+                </li>
+                <li class="nav-item col-sm-10 offset-sm-2">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <div class="col-sm-4">
+                <img class="col-sm-12" src="{{ asset('imgApp/logo.png') }}" alt="logo of application" />
+            </div>
+            <ul class="nav col-sm-4 p-4">
+                <li class="nav-item col-sm-8 offset-sm-4">
+                    <a class="nav-link active" aria-current="page" href="#">Condition d'utilisation</a>
+                </li>
+                <li class="nav-item col-sm-8 offset-sm-4">
+                    <a class="nav-link" href="#">Espace entreprise</a>
+                </li>
+                <li class="nav-item col-sm-8 offset-sm-4">
+                    <a class="nav-link" href="#">Espace administration</a>
+                </li>
+            </ul>
+            <p class="copyright col-sm-12 text-center">Communauté@copyright</p>
+        </div>
+    </footer>
         {% block javascripts %}
             {{ encore_entry_script_tags('base') }}
         {% endblock %}
