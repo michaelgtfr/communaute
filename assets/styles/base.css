@@ -16,3 +16,11 @@
 {
     color: white;
 }
+
+@media all and (max-width: 572px)
+{
+    .nav-item
+    {
+        text-align: center;
+    }
+}
