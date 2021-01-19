@@ -54,15 +54,15 @@ class RegisterController
         if ($registerForm->isSubmitted() && $registerForm->isValid()) {
             $user = $registerForm->getData();
             if($user->passwordValid()){
-                $treatment->treatment($user, $generator, $em, $mailer, $session,
+                $treatment->treatment($user, $em, $mailer, $session,
                     $passwordEncoder,$request->headers->get('host'));
+                $router = $generator->generate('app_login');
+                return new RedirectResponse($router, 302);
             }
             $session->getFlashBag()->add(
                 'error',
                 'Désolé, mais vos informations ne sont pas bon, veuillez vérifiés les informations écritent.'
             );
-            $router = $generator->generate('app_homepage');
-            return new RedirectResponse($router, 302);
         }
 
         $render = $twig->render('security/register.html.twig', [
