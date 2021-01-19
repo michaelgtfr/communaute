@@ -21,7 +21,22 @@
             </div>
         </div>
     </nav>
-        {% block body %}{% endblock %}
+
+    <!--flash message-->
+    {% for message in app.flashes('success') %}
+        <div class = "alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        <div class = "alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
     <footer class="container-fluid">
         <div class="footer row">
             <ul class="nav col-sm-4 col-xs-12 p-4">
