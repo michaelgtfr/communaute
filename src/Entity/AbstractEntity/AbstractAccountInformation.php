@@ -45,6 +45,16 @@ abstract class AbstractAccountInformation
 
     protected $passwordConfirm;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $confirmationKey;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $confirmation;
+
     public function getName(): ?string
     {
         return $this->name;
@@ -150,5 +160,29 @@ abstract class AbstractAccountInformation
             return true;
         }
         return false;
+    }
+
+    public function getConfirmationKey(): ?string
+    {
+        return $this->confirmationKey;
+    }
+
+    public function setConfirmationKey(string $confirmationKey): self
+    {
+        $this->confirmationKey = $confirmationKey;
+
+        return $this;
+    }
+
+    public function getConfirmation(): ?int
+    {
+        return $this->confirmation;
+    }
+
+    public function setConfirmation(int $confirmation): self
+    {
+        $this->confirmation = $confirmation;
+
+        return $this;
     }
 }
