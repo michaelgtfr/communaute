@@ -21,31 +21,31 @@ class CommentDiscussion extends AbstractComment
     /**
      * @ORM\OneToOne(targetEntity=Discussion::class, mappedBy="commentDiscussion", cascade={"persist", "remove"})
      */
-    private $discussionId;
+    private $discussions;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDiscussionId(): ?Discussion
+    public function getDiscussions(): ?Discussion
     {
-        return $this->discussionId;
+        return $this->discussions;
     }
 
-    public function setDiscussionId(?Discussion $discussionId): self
+    public function setDiscussions(?Discussion $discussions): self
     {
         // unset the owning side of the relation if necessary
-        if ($discussionId === null && $this->discussionId !== null) {
-            $this->discussionId->setCommentDiscussion(null);
+        if ($discussions === null && $this->discussions !== null) {
+            $this->discussions->setCommentDiscussion(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($discussionId !== null && $discussionId->getCommentDiscussion() !== $this) {
-            $discussionId->setCommentDiscussion($this);
+        if ($discussions !== null && $discussions->getCommentDiscussion() !== $this) {
+            $discussions->setCommentDiscussion($this);
         }
 
-        $this->discussionId = $discussionId;
+        $this->discussions = $discussions;
 
         return $this;
     }

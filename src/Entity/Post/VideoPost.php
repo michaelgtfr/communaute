@@ -23,17 +23,17 @@ class VideoPost extends AbstractFiles
     /**
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="videoPost", cascade={"persist", "remove"})
      */
-    private $postId;
+    private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity=NoteVideoPost::class, mappedBy="videoPostId")
+     * @ORM\OneToMany(targetEntity=NoteVideoPost::class, mappedBy="videoPosts")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $noteVideoPostId;
+    private $noteVideoPosts;
 
     public function __construct()
     {
-        $this->noteVideoPostId = new ArrayCollection();
+        $this->noteVideoPosts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,24 +41,24 @@ class VideoPost extends AbstractFiles
         return $this->id;
     }
 
-    public function getPostId(): ?Post
+    public function getPosts(): ?Post
     {
-        return $this->postId;
+        return $this->posts;
     }
 
-    public function setPostId(?Post $postId): self
+    public function setPosts(?Post $posts): self
     {
         // unset the owning side of the relation if necessary
-        if ($postId === null && $this->postId !== null) {
-            $this->postId->setVideoPost(null);
+        if ($posts === null && $this->posts !== null) {
+            $this->posts->setVideoPost(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($postId !== null && $postId->getVideoPost() !== $this) {
-            $postId->setVideoPost($this);
+        if ($posts !== null && $posts->getVideoPost() !== $this) {
+            $posts->setVideoPost($this);
         }
 
-        $this->postId = $postId;
+        $this->posts = $posts;
 
         return $this;
     }
@@ -66,27 +66,27 @@ class VideoPost extends AbstractFiles
     /**
      * @return Collection|NoteVideoPost[]
      */
-    public function getNoteVideoPostId(): Collection
+    public function getNoteVideoPosts(): Collection
     {
-        return $this->noteVideoPostId;
+        return $this->noteVideoPosts;
     }
 
-    public function addNoteVideoPostId(NoteVideoPost $noteVideoPostId): self
+    public function addNoteVideoPosts(NoteVideoPost $noteVideoPosts): self
     {
-        if (!$this->noteVideoPostId->contains($noteVideoPostId)) {
-            $this->noteVideoPostId[] = $noteVideoPostId;
-            $noteVideoPostId->setVideoPostId($this);
+        if (!$this->noteVideoPosts->contains($noteVideoPosts)) {
+            $this->noteVideoPosts[] = $noteVideoPosts;
+            $noteVideoPosts->setVideoPosts($this);
         }
 
         return $this;
     }
 
-    public function removeNoteVideoPostId(NoteVideoPost $noteVideoPostId): self
+    public function removeNoteVideoPosts(NoteVideoPost $noteVideoPosts): self
     {
-        if ($this->noteVideoPostId->removeElement($noteVideoPostId)) {
+        if ($this->noteVideoPosts->removeElement($noteVideoPosts)) {
             // set the owning side to null (unless already changed)
-            if ($noteVideoPostId->getVideoPostId() === $this) {
-                $noteVideoPostId->setVideoPostId(null);
+            if ($noteVideoPosts->getVideoPosts() === $this) {
+                $noteVideoPosts->setVideoPosts(null);
             }
         }
 

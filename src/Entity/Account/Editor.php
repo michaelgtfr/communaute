@@ -82,7 +82,7 @@ class Editor extends AbstractAccountInformation
     {
         if (!$this->publicity->contains($publicity)) {
             $this->publicity[] = $publicity;
-            $publicity->setEditorId($this);
+            $publicity->setEditors($this);
         }
 
         return $this;
@@ -92,8 +92,8 @@ class Editor extends AbstractAccountInformation
     {
         if ($this->publicity->removeElement($publicity)) {
             // set the owning side to null (unless already changed)
-            if ($publicity->getEditorId() === $this) {
-                $publicity->setEditorId(null);
+            if ($publicity->getEditors() === $this) {
+                $publicity->setEditors(null);
             }
         }
 

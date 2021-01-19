@@ -38,7 +38,6 @@ abstract class AbstractAccountInformation
     protected $dateLastConnection;
 
     /**
-     * @var string The hashed password
      * @ORM\Column(type="string", length=60)
      */
     protected $password;

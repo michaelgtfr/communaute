@@ -22,21 +22,21 @@ class NoteVideoPost extends AbstractNotePost
      * @ORM\ManyToOne(targetEntity=VideoPost::class, inversedBy="noteVideoPostId")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $videoPostId;
+    private $videoPosts;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getVideoPostId(): ?VideoPost
+    public function getVideoPosts(): ?VideoPost
     {
-        return $this->videoPostId;
+        return $this->videoPosts;
     }
 
-    public function setVideoPostId(?VideoPost $videoPostId): self
+    public function setVideoPosts(?VideoPost $videoPosts): self
     {
-        $this->videoPostId = $videoPostId;
+        $this->videoPosts = $videoPosts;
 
         return $this;
     }

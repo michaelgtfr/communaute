@@ -21,31 +21,31 @@ class VideoDiscussion extends AbstractFiles
     /**
      * @ORM\OneToOne(targetEntity=Discussion::class, mappedBy="videoDiscussion", cascade={"persist", "remove"})
      */
-    private $discussionId;
+    private $discussions;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDiscussionId(): ?Discussion
+    public function getDiscussions(): ?Discussion
     {
-        return $this->discussionId;
+        return $this->discussions;
     }
 
-    public function setDiscussionId(?Discussion $discussionId): self
+    public function setDiscussions(?Discussion $discussions): self
     {
         // unset the owning side of the relation if necessary
-        if ($discussionId === null && $this->discussionId !== null) {
-            $this->discussionId->setVideoDiscussion(null);
+        if ($discussions === null && $this->discussions !== null) {
+            $this->discussions->setVideoDiscussion(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($discussionId !== null && $discussionId->getVideoDiscussion() !== $this) {
-            $discussionId->setVideoDiscussion($this);
+        if ($discussions !== null && $discussions->getVideoDiscussion() !== $this) {
+            $discussions->setVideoDiscussion($this);
         }
 
-        $this->discussionId = $discussionId;
+        $this->discussions = $discussions;
 
         return $this;
     }

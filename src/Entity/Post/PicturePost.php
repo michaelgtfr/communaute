@@ -23,17 +23,17 @@ class PicturePost extends AbstractFiles
     /**
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="picturePost", cascade={"persist", "remove"})
      */
-    private $postId;
+    private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity=NotePicturePost::class, mappedBy="picturePostId")
+     * @ORM\OneToMany(targetEntity=NotePicturePost::class, mappedBy="picturePosts")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $notePicturePostId;
+    private $notePicturePosts;
 
     public function __construct()
     {
-        $this->notePicturePostId = new ArrayCollection();
+        $this->notePicturePosts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,24 +41,24 @@ class PicturePost extends AbstractFiles
         return $this->id;
     }
 
-    public function getPostId(): ?Post
+    public function getPosts(): ?Post
     {
-        return $this->postId;
+        return $this->posts;
     }
 
-    public function setPostId(?Post $postId): self
+    public function setPostId(?Post $posts): self
     {
         // unset the owning side of the relation if necessary
-        if ($postId === null && $this->postId !== null) {
-            $this->postId->setPicturePost(null);
+        if ($posts === null && $this->posts !== null) {
+            $this->posts->setPicturePost(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($postId !== null && $postId->getPicturePost() !== $this) {
-            $postId->setPicturePost($this);
+        if ($posts !== null && $posts->getPicturePost() !== $this) {
+            $posts->setPicturePost($this);
         }
 
-        $this->postId = $postId;
+        $this->posts = $posts;
 
         return $this;
     }
@@ -66,27 +66,27 @@ class PicturePost extends AbstractFiles
     /**
      * @return Collection|NotePicturePost[]
      */
-    public function getNotePicturePostId(): Collection
+    public function getNotePicturePosts(): Collection
     {
-        return $this->notePicturePostId;
+        return $this->notePicturePosts;
     }
 
-    public function addNotePicturePostId(NotePicturePost $notePicturePostId): self
+    public function addNotePicturePosts(NotePicturePost $notePicturePosts): self
     {
-        if (!$this->notePicturePostId->contains($notePicturePostId)) {
-            $this->notePicturePostId[] = $notePicturePostId;
-            $notePicturePostId->setPicturePostId($this);
+        if (!$this->notePicturePosts->contains($notePicturePosts)) {
+            $this->notePicturePosts[] = $notePicturePosts;
+            $notePicturePosts->setPicturePosts($this);
         }
 
         return $this;
     }
 
-    public function removeNotePicturePostId(NotePicturePost $notePicturePostId): self
+    public function removeNotePicturePosts(NotePicturePost $notePicturePosts): self
     {
-        if ($this->notePicturePostId->removeElement($notePicturePostId)) {
+        if ($this->notePicturePosts->removeElement($notePicturePosts)) {
             // set the owning side to null (unless already changed)
-            if ($notePicturePostId->getPicturePostId() === $this) {
-                $notePicturePostId->setPicturePostId(null);
+            if ($notePicturePosts->getPicturePosts() === $this) {
+                $notePicturePosts->setPicturePosts(null);
             }
         }
 

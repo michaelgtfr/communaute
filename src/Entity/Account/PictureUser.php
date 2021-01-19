@@ -29,10 +29,10 @@ class PictureUser extends AbstractFiles
     private $profilPicture;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pictureUserId")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="pictureUsers")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
+    private $users;
 
     public function getId(): ?int
     {
@@ -63,14 +63,14 @@ class PictureUser extends AbstractFiles
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUsers(): ?User
     {
-        return $this->userId;
+        return $this->users;
     }
 
-    public function setUserId(?User $userId): self
+    public function setUsers(?User $users): self
     {
-        $this->userId = $userId;
+        $this->users = $users;
 
         return $this;
     }

@@ -23,17 +23,17 @@ class CommentPost extends AbstractComment
     /**
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="commentPost", cascade={"persist", "remove"})
      */
-    private $postId;
+    private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity=NoteCommentPost::class, mappedBy="commentPostId")
+     * @ORM\OneToMany(targetEntity=NoteCommentPost::class, mappedBy="commentPosts")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $noteCommentPostId;
+    private $noteCommentPosts;
 
     public function __construct()
     {
-        $this->noteCommentPostId = new ArrayCollection();
+        $this->noteCommentPosts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,24 +41,24 @@ class CommentPost extends AbstractComment
         return $this->id;
     }
 
-    public function getPostId(): ?Post
+    public function getPosts(): ?Post
     {
-        return $this->postId;
+        return $this->posts;
     }
 
-    public function setPostId(?Post $postId): self
+    public function setPosts(?Post $posts): self
     {
         // unset the owning side of the relation if necessary
-        if ($postId === null && $this->postId !== null) {
-            $this->postId->setCommentPost(null);
+        if ($posts === null && $this->posts !== null) {
+            $this->posts->setCommentPost(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($postId !== null && $postId->getCommentPost() !== $this) {
-            $postId->setCommentPost($this);
+        if ($posts !== null && $posts->getCommentPost() !== $this) {
+            $posts->setCommentPost($this);
         }
 
-        $this->postId = $postId;
+        $this->posts = $posts;
 
         return $this;
     }
@@ -66,27 +66,27 @@ class CommentPost extends AbstractComment
     /**
      * @return Collection|NoteCommentPost[]
      */
-    public function getNoteCommentPostId(): Collection
+    public function getNoteCommentPosts(): Collection
     {
-        return $this->noteCommentPostId;
+        return $this->noteCommentPosts;
     }
 
-    public function addNoteCommentPostId(NoteCommentPost $noteCommentPostId): self
+    public function addNoteCommentPosts(NoteCommentPost $noteCommentPosts): self
     {
-        if (!$this->noteCommentPostId->contains($noteCommentPostId)) {
-            $this->noteCommentPostId[] = $noteCommentPostId;
-            $noteCommentPostId->setCommentPostId($this);
+        if (!$this->noteCommentPosts->contains($noteCommentPosts)) {
+            $this->noteCommentPosts[] = $noteCommentPosts;
+            $noteCommentPosts->setCommentPosts($this);
         }
 
         return $this;
     }
 
-    public function removeNoteCommentPostId(NoteCommentPost $noteCommentPostId): self
+    public function removeNoteCommentPosts(NoteCommentPost $noteCommentPosts): self
     {
-        if ($this->noteCommentPostId->removeElement($noteCommentPostId)) {
+        if ($this->noteCommentPosts->removeElement($noteCommentPosts)) {
             // set the owning side to null (unless already changed)
-            if ($noteCommentPostId->getCommentPostId() === $this) {
-                $noteCommentPostId->setCommentPostId(null);
+            if ($noteCommentPosts->getCommentPosts() === $this) {
+                $noteCommentPosts->setCommentPosts(null);
             }
         }
 

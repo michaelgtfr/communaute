@@ -23,17 +23,17 @@ class LinkPost extends AbstractLink
     /**
      * @ORM\OneToOne(targetEntity=Post::class, mappedBy="linkPost", cascade={"persist", "remove"})
      */
-    private $postId;
+    private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity=NoteLinkPost::class, mappedBy="linkPostId")
+     * @ORM\OneToMany(targetEntity=NoteLinkPost::class, mappedBy="linkPosts")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $noteLinkPostId;
+    private $noteLinkPosts;
 
     public function __construct()
     {
-        $this->noteLinkPostId = new ArrayCollection();
+        $this->noteLinkPosts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,24 +41,24 @@ class LinkPost extends AbstractLink
         return $this->id;
     }
 
-    public function getPostId(): ?Post
+    public function getPosts(): ?Post
     {
-        return $this->postId;
+        return $this->posts;
     }
 
-    public function setPostId(?Post $postId): self
+    public function setPosts(?Post $posts): self
     {
         // unset the owning side of the relation if necessary
-        if ($postId === null && $this->postId !== null) {
-            $this->postId->setLinkPost(null);
+        if ($posts === null && $this->posts !== null) {
+            $this->posts->setLinkPost(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($postId !== null && $postId->getLinkPost() !== $this) {
-            $postId->setLinkPost($this);
+        if ($posts !== null && $posts->getLinkPost() !== $this) {
+            $posts->setLinkPost($this);
         }
 
-        $this->postId = $postId;
+        $this->posts = $posts;
 
         return $this;
     }
@@ -66,27 +66,27 @@ class LinkPost extends AbstractLink
     /**
      * @return Collection|NoteLinkPost[]
      */
-    public function getNoteLinkPostId(): Collection
+    public function getNoteLinkPosts(): Collection
     {
-        return $this->noteLinkPostId;
+        return $this->noteLinkPosts;
     }
 
-    public function addNoteLinkPostId(NoteLinkPost $noteLinkPostId): self
+    public function addNoteLinkPosts(NoteLinkPost $noteLinkPosts): self
     {
-        if (!$this->noteLinkPostId->contains($noteLinkPostId)) {
-            $this->noteLinkPostId[] = $noteLinkPostId;
-            $noteLinkPostId->setLinkPostId($this);
+        if (!$this->noteLinkPosts->contains($noteLinkPosts)) {
+            $this->noteLinkPosts[] = $noteLinkPosts;
+            $noteLinkPosts->setLinkPosts($this);
         }
 
         return $this;
     }
 
-    public function removeNoteLinkPostId(NoteLinkPost $noteLinkPostId): self
+    public function removeNoteLinkPosts(NoteLinkPost $noteLinkPosts): self
     {
-        if ($this->noteLinkPostId->removeElement($noteLinkPostId)) {
+        if ($this->noteLinkPosts->removeElement($noteLinkPosts)) {
             // set the owning side to null (unless already changed)
-            if ($noteLinkPostId->getLinkPostId() === $this) {
-                $noteLinkPostId->setLinkPostId(null);
+            if ($noteLinkPosts->getLinkPosts() === $this) {
+                $noteLinkPosts->setLinkPosts(null);
             }
         }
 
