@@ -1,0 +1,12 @@
+{%  block body %}
+    <section>
+        <p class="content_email">Votre inscription à été accepté, avant de vous connectez,
+            vous devrez confirmée votre inscription en cliquant sur ce bouton<p>
+
+            <a class="link" href="http://{{ host }}/confirmation?activation={{ addressUser }}&cle={{ key }}">
+                confirmer en cliquant ici
+            </a>
+
+        <p class="politeness_formula">Merci de votre soutien dans cette aventure</p>
+    </section>
+{% endblock %}
