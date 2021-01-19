@@ -9,20 +9,19 @@
 namespace App\Treatment;
 
 
+use App\Entity\Account\AccountParameter;
 use App\Entity\Account\User;
 use App\Mailer\RegisterMailer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterTreatment
 {
-    public function treatment(User $user, UrlGeneratorInterface $generator, EntityManagerInterface $em,
-                              MailerInterface $mailer, Session $session,  UserPasswordEncoderInterface $passwordEncoder,
-                              $host)
+    public function treatment(User $user, EntityManagerInterface $em, MailerInterface $mailer, Session $session,
+                              UserPasswordEncoderInterface $passwordEncoder, $host)
     {
         $key = md5(microtime(true)*100000);
 
@@ -31,6 +30,10 @@ class RegisterTreatment
         $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
         $user->setConfirmationKey($key);
         $user->setConfirmation('0');
+
+        $accountParams = new AccountParameter();
+
+        $user->setAccountParameters($accountParams);
         $em->persist($user);
         $em->flush();
 
@@ -43,7 +46,5 @@ class RegisterTreatment
                             Si vous n\'avez pas reçu votre email, allez sur la page de connexion, 
                             cliquez sur le lien du mot de passe oublié et Suivez les instructions.'
         );
-        $router = $generator->generate('app_homepage');
-        return new RedirectResponse($router, 302);
     }
 }
