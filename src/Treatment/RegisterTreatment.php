@@ -12,8 +12,8 @@ namespace App\Treatment;
 use App\Entity\Account\AccountParameter;
 use App\Entity\Account\User;
 use App\Mailer\RegisterMailer;
+use App\Services\ProcessingFiles;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -21,21 +21,24 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegisterTreatment
 {
     public function treatment(User $user, EntityManagerInterface $em, MailerInterface $mailer, Session $session,
-                              UserPasswordEncoderInterface $passwordEncoder, $host)
+                              UserPasswordEncoderInterface $passwordEncoder, $host, $extensionFiles)
     {
         $key = md5(microtime(true)*100000);
+        $accountParams = new AccountParameter();
 
+        $profilPicture = new ProcessingFiles();
+        $profilPicture = $profilPicture->fileTreatment($user->getCompletePictureName(), $extensionFiles, 1);
+
+        $user->addPictureUsers($profilPicture);
         $user->setDateCreate(new \DateTime());
         $user->setRoles(['ROLE_USER']);
         $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));
         $user->setConfirmationKey($key);
         $user->setConfirmation('0');
-
-        $accountParams = new AccountParameter();
-
         $user->setAccountParameters($accountParams);
+
+        dd($user);
         $em->persist($user);
-        $em->flush();
 
         (new RegisterMailer())->mailer($mailer, $user->getEmail(), $key, $host);
 
