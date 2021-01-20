@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Account\PictureUser;
 use App\Entity\Account\User;
 use App\Form\RegisterForm;
 use App\Treatment\RegisterTreatment;
@@ -55,7 +56,9 @@ class RegisterController
             $user = $registerForm->getData();
             if($user->passwordValid()){
                 $treatment->treatment($user, $em, $mailer, $session,
-                    $passwordEncoder,$request->headers->get('host'));
+                    $passwordEncoder,$request->headers->get('host'),
+                    $registerForm->get('completePictureName')->getData()->guessExtension());
+
                 $router = $generator->generate('app_login');
                 return new RedirectResponse($router, 302);
             }
@@ -64,7 +67,6 @@ class RegisterController
                 'Désolé, mais vos informations ne sont pas bon, veuillez vérifiés les informations écritent.'
             );
         }
-
         $render = $twig->render('security/register.html.twig', [
             'form' => $registerForm->createView(),
         ]);
