@@ -80,6 +80,8 @@ class User extends AbstractAccountInformation implements UserInterface
      */
     private $noLimits;
 
+    private $completePictureName;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -230,7 +232,7 @@ class User extends AbstractAccountInformation implements UserInterface
         return $this;
     }
 
-    public function removeDiscussionId(Discussion $discussions): self
+    public function removeDiscussions(Discussion $discussions): self
     {
         if ($this->discussions->removeElement($discussions)) {
             // set the owning side to null (unless already changed)
@@ -262,7 +264,7 @@ class User extends AbstractAccountInformation implements UserInterface
         return $this->pictureUsers;
     }
 
-    public function addPictureUserId(PictureUser $pictureUsers): self
+    public function addPictureUsers(PictureUser $pictureUsers): self
     {
         if (!$this->pictureUsers->contains($pictureUsers)) {
             $this->pictureUsers[] = $pictureUsers;
@@ -272,7 +274,7 @@ class User extends AbstractAccountInformation implements UserInterface
         return $this;
     }
 
-    public function removePictureUserId(PictureUser $pictureUsers): self
+    public function removePictureUsers(PictureUser $pictureUsers): self
     {
         if ($this->pictureUsers->removeElement($pictureUsers)) {
             // set the owning side to null (unless already changed)
@@ -326,5 +328,15 @@ class User extends AbstractAccountInformation implements UserInterface
         return $this;
     }
 
+    public function getCompletePictureName(): ?string
+    {
+        return $this->completePictureName;
+    }
 
+    public function setCompletePictureName(?string $completePictureName): self
+    {
+        $this->completePictureName = $completePictureName;
+
+        return $this;
+    }
 }
