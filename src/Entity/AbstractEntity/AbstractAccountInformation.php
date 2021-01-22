@@ -47,12 +47,14 @@ abstract class AbstractAccountInformation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $confirmationKey;
+    protected $confirmationKey;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $confirmation;
+    protected $confirmation;
+
+    protected $termsOfUse;
 
     public function getName(): ?string
     {
@@ -181,6 +183,18 @@ abstract class AbstractAccountInformation
     public function setConfirmation(int $confirmation): self
     {
         $this->confirmation = $confirmation;
+
+        return $this;
+    }
+
+    public function getTermsOfUse(): ?bool
+    {
+        return $this->termsOfUse;
+    }
+
+    public function setTermsOfUse(?bool $termsOfUse): self
+    {
+        $this->termsOfUse = $termsOfUse;
 
         return $this;
     }
