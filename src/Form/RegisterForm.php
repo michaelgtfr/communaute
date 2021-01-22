@@ -11,6 +11,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,41 +28,52 @@ class RegisterForm extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => 'Pseudo'
+                'label' => 'Pseudo *',
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe *',
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'présentation'
+                'label' => 'Présentation',
+                'required' => false
             ])
             ->add('country', TextType::class, [
-                'label' => 'Pays'
+                'label' => 'Pays *',
             ])
             ->add('address', TextType::class, [
-                'label' => 'Ville'
+                'label' => 'Ville',
+                'required' => false
             ])
             ->add('name', TextType::class, [
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'required' => false
             ])
             ->add('firstName', TextType::class, [
-                'label' => 'prénom'
+                'label' => 'Prénom',
+                'required' => false
             ])
-            ->add('email', TextType::class)
+            ->add('email', TextType::class, [
+                'label' => 'Email *'
+            ])
             ->add('dateBirth', BirthdayType::class, [
-                'label' => 'date de naissance'
+                'label' => 'Date de naissance*( j-m-a )',
+                'format' => 'dd_MM_yyyy',
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'mot de passe'
+                'label' => 'Mot de passe *',
             ])
             ->add('passwordConfirm', PasswordType::class, [
-                'label' => 'ré-écrivez le mot de passe'
+                'label' => 'Ré-écrivez le mot de passe *',
             ])
             ->add('completePictureName', FileType::class,[
                     'label' => 'Photo de profil',
                     'attr' => [
                         'lang' => 'fr',
-                    ]
+                    ],
+                'required' => false
+            ])
+            ->add('termsOfUse', CheckboxType::class, [
+                'label' => 'J\'accepte les conditions d\'utilisation de l\'application *',
             ])
         ;
     }
