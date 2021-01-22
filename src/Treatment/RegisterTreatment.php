@@ -37,8 +37,8 @@ class RegisterTreatment
         $user->setConfirmation('0');
         $user->setAccountParameters($accountParams);
 
-        dd($user);
         $em->persist($user);
+        $em->flush();
 
         (new RegisterMailer())->mailer($mailer, $user->getEmail(), $key, $host);
 

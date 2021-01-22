@@ -8,8 +8,6 @@
 
 namespace App\Controller;
 
-
-use App\Entity\Account\PictureUser;
 use App\Entity\Account\User;
 use App\Form\RegisterForm;
 use App\Treatment\RegisterTreatment;
