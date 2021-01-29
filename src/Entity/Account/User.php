@@ -66,7 +66,7 @@ class User extends AbstractAccountInformation implements UserInterface
     private $accountParameters;
 
     /**
-     * @ORM\OneToMany(targetEntity=PictureUser::class, mappedBy="users", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=PictureUser::class, mappedBy="users", orphanRemoval=true, cascade={"persist", "remove"})
      */
     private $pictureUsers;
 

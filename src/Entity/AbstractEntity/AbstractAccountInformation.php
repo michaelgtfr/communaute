@@ -38,7 +38,7 @@ abstract class AbstractAccountInformation
     protected $dateLastConnection;
 
     /**
-     * @ORM\Column(type="string", length=60)
+     * @ORM\Column(type="string", length=150)
      */
     protected $password;
 
