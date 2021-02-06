@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="title col-sm-12 text-center">
+            <h1 class="p-5">Contact</h1>
+        </div>
+        <div class="col-sm-12">
+            {{ form_start(form) }}
+
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ form_row(form.username) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="col-sm-12">
+                    {{ form_row(form.content) }}
+                </div>
+                <div class="col-sm-12 text-center p-3">
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+
+{%  endblock %}
+
+{% block javascripts %}
+    {{  parent() }}
+    {{ encore_entry_script_tags('contact') }}
+{% endblock %}

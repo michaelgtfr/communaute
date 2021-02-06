@@ -21,15 +21,18 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegisterTreatment
 {
     public function treatment(User $user, EntityManagerInterface $em, MailerInterface $mailer, Session $session,
-                              UserPasswordEncoderInterface $passwordEncoder, $host, $extensionFiles)
+                              UserPasswordEncoderInterface $passwordEncoder, $host, $files)
     {
         $key = md5(microtime(true)*100000);
         $accountParams = new AccountParameter();
 
-        $profilPicture = new ProcessingFiles();
-        $profilPicture = $profilPicture->fileTreatment($user->getCompletePictureName(), $extensionFiles, 1);
+        if ($files != null) {
+            $profilPicture = new ProcessingFiles();
+            $profilPicture = $profilPicture->fileTreatment($user->getCompletePictureName(),
+                $files->guessExtension(), 1);
+            $user->addPictureUsers($profilPicture);
+        }
 
-        $user->addPictureUsers($profilPicture);
         $user->setDateCreate(new \DateTime());
         $user->setRoles(['ROLE_USER']);
         $user->setPassword($passwordEncoder->encodePassword($user, $user->getPassword()));

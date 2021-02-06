@@ -55,7 +55,7 @@ class RegisterController
             if($user->passwordValid()){
                 $treatment->treatment($user, $em, $mailer, $session,
                     $passwordEncoder,$request->headers->get('host'),
-                    $registerForm->get('completePictureName')->getData()->guessExtension());
+                    $registerForm->get('completePictureName')->getData());
 
                 $router = $generator->generate('app_login');
                 return new RedirectResponse($router, 302);

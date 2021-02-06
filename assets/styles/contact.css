@@ -1,0 +1,16 @@
+body
+{
+    background: radial-gradient(#159296,#9978ff);
+}
+
+.btn-primary
+{
+    background-color: #0c59cf;
+    border: none;
+}
+
+h1
+{
+    color: white;
+    font-size: 72px;
+}
