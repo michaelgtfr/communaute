@@ -3,7 +3,6 @@
 namespace App\Entity\Discussion;
 
 use App\Entity\Account\User;
-use App\Entity\Discussion\Discussion\LinkDiscussion;
 use App\Repository\Discussion\DiscussionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
