@@ -17,9 +17,10 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class AccountConfirmation
+class AccountConfirmationController
 {
     /**
+     * Functional test performed in register.feature file
      * @Route("/confirmation/{email}/confirmationKey/{confirmationKey}", name="app_account_confirmation")
      * @ParamConverter("user", options={"mapping": {"email": "email", "confirmationKey": "confirmationKey"}})
      * @param User $user
