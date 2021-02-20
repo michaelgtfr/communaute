@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Discussion\Discussion;
+namespace App\Entity\Discussion;
 
 use App\Entity\AbstractEntity\AbstractLink;
 use App\Entity\Discussion\Discussion;
