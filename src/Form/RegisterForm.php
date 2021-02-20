@@ -30,9 +30,6 @@ class RegisterForm extends AbstractType
             ->add('username', TextType::class, [
                 'label' => 'Pseudo *',
             ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe *',
-            ])
             ->add('description', TextareaType::class, [
                 'label' => 'Présentation',
                 'required' => false
