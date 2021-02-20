@@ -10,4 +10,4 @@ script:
   - php bin/console doctrine:schema:update --force --env=test
   - vendor/bin/behat
   - vendor/bin/phpunit
-  - /bin/phpunit --coverage-text
+  - vendor/bin/phpunit --coverage-text

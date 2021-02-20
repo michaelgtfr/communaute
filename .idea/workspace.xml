@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb4666f2-08e3-4f05-87b6-8a3780a11bc5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/behat.yml" beforeDir="false" afterPath="$PROJECT_DIR$/behat.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,20 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/behat.yml">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -130,8 +121,8 @@
         <option value="$PROJECT_DIR$/src/Entity/Discussion/LinkDiscussion.php" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
         <option value="$PROJECT_DIR$/src/Entity/Discussion/Discussion.php" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/behat.yml" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -439,12 +430,12 @@
       <workItem from="1613190481791" duration="1515000" />
       <workItem from="1613209824482" duration="16792000" />
       <workItem from="1613286311362" duration="8895000" />
-      <workItem from="1613803829285" duration="11027000" />
+      <workItem from="1613803829285" duration="11181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269412000" />
+    <option name="totallyTimeSpent" value="269566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -837,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/bundles.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -851,6 +835,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
