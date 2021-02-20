@@ -244,6 +244,7 @@ class User extends AbstractAccountInformation implements UserInterface
         return $this;
     }
 
+
     public function getAccountParameters(): ?AccountParameter
     {
         return $this->accountParameters;
