@@ -46,7 +46,7 @@ class PicturePost extends AbstractFiles
         return $this->posts;
     }
 
-    public function setPostId(?Post $posts): self
+    public function setPosts(?Post $posts): self
     {
         // unset the owning side of the relation if necessary
         if ($posts === null && $this->posts !== null) {
