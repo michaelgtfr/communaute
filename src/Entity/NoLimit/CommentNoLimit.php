@@ -21,31 +21,31 @@ class CommentNoLimit extends AbstractComment
     /**
      * @ORM\OneToOne(targetEntity=NoLimit::class, mappedBy="commentNoLimit", cascade={"persist", "remove"})
      */
-    private $noLimitId;
+    private $noLimits;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNoLimitId(): ?NoLimit
+    public function getNoLimits(): ?NoLimit
     {
-        return $this->noLimitId;
+        return $this->noLimits;
     }
 
-    public function setNoLimitId(?NoLimit $noLimitId): self
+    public function setNoLimits(?NoLimit $noLimits): self
     {
         // unset the owning side of the relation if necessary
-        if ($noLimitId === null && $this->noLimitId !== null) {
-            $this->noLimitId->setCommentNoLimit(null);
+        if ($noLimits === null && $this->noLimits !== null) {
+            $this->noLimits->setCommentNoLimit(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($noLimitId !== null && $noLimitId->getCommentNoLimit() !== $this) {
-            $noLimitId->setCommentNoLimit($this);
+        if ($noLimits !== null && $noLimits->getCommentNoLimit() !== $this) {
+            $noLimits->setCommentNoLimit($this);
         }
 
-        $this->noLimitId = $noLimitId;
+        $this->noLimits = $noLimits;
 
         return $this;
     }

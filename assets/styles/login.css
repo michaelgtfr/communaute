@@ -40,3 +40,52 @@ body
     font-size: 30px;
     font-family: Helvetica, sans-serif;
 }
+
+@media all and (max-width: 572px)
+{
+    .card
+    {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .order-one
+    {
+        order: 1;
+    }
+    .order-two
+    {
+        order: 2;
+    }
+
+    .order-three
+    {
+        order: 3;
+    }
+
+    .order-for
+    {
+        order: 4;
+    }
+
+    .order-five
+    {
+        order: 5;
+    }
+
+    .order-six
+    {
+        order: 6;
+    }
+
+    .question
+    {
+        font-size: 20px;
+    }
+
+    .response
+    {
+        font-size: 20px;
+    }
+}

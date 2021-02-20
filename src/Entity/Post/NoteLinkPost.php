@@ -19,24 +19,24 @@ class NoteLinkPost extends AbstractNotePost
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=LinkPost::class, inversedBy="noteLinkPostId")
+     * @ORM\ManyToOne(targetEntity=LinkPost::class, inversedBy="noteLinkPosts")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $linkPostId;
+    private $linkPosts;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getLinkPostId(): ?LinkPost
+    public function getLinkPosts(): ?LinkPost
     {
-        return $this->linkPostId;
+        return $this->linkPosts;
     }
 
-    public function setLinkPostId(?LinkPost $linkPostId): self
+    public function setLinkPosts(?LinkPost $linkPosts): self
     {
-        $this->linkPostId = $linkPostId;
+        $this->linkPosts = $linkPosts;
 
         return $this;
     }

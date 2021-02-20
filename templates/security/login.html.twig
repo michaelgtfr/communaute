@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block body %}
-    <section class="connection container-fluid m-5">
-        <div class="card">
+    <section class="connection m-5">
+        <div class="card col-xs-12">
             <div class="card-body">
                 <form method="post">
                     {% if error %}
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button class="btn btn-lg btn-primary" type="submit">
+                        <button class="btn btn-lg btn-primary" type="submit" >
                             Valider
                         </button>
                     </div>
@@ -44,29 +44,30 @@
                 <p class="text-center mt-4">Je n'ai pas de compte</p>
                 <div class="text-center">
                     <button class="btn btn-lg btn-primary" type="submit">
-                        Inscription
+                        <a href="{{ path('app_register') }}">Inscription</a>
                     </button>
+                </div>
             </div>
         </div>
     </section>
     <section class="presentation container-fluid mt-5">
         <div class="row align-items-center">
-            <div class="col-sm-6 text-center">
+            <div class="col-sm-6 text-center order-one">
                 <p class="question">Qu'est ce que "Communauté"?</p>
             </div>
-            <div class="col-sm-6">
-                <p class="response text-justify p-5">Communauté est un réseau social de communication et d'échange permettant aux personnes d'envoyer des messages, images ou vidéos à ces amis, famille,... accepté par celui-ci permettant aussi de voir leurs articles posté.Vous pourrez aussi consulter les journaux, participer au discution dont le sujet change tous les jours ou participer au "no limit", permettent à chacun de poster se qu'il veut pendant 24h. </p>
+            <div class="col-sm-6 order-two">
+                <p class="response text-justify p-5 ">Communauté est un réseau social de communication et d'échange permettant aux personnes d'envoyer des messages, images ou vidéos à ces amis, famille,... accepté par celui-ci permettant aussi de voir leurs articles posté.Vous pourrez aussi consulter les journaux, participer au discution dont le sujet change tous les jours ou participer au "no limit", permettent à chacun de poster se qu'il veut pendant 24h. </p>
             </div>
-            <div class="col-sm-6">
-                <p class="response text-justify p-5">Plusieurs raisons on poussé à la création de communauté. Vos informations données servent à améliorer l'expérience utilisateur, il ne sont en aucun cas utilisé par d'autres sites externe. La sécurité des enfants par la mise en place de TAG et de filtration permettent grâce à l'age de voir tel sujet ou telle page. La sécurité des utilisateurs contre le harcèlement, le terrorisme et autres problèmes pouvant être rencontré des autres sites web passe par une surveillance des posts par les administrateurs du site et les services de sécurité française.  </p>
+            <div class="col-sm-6 order-for">
+                <p class="response text-justify p-5 ">Plusieurs raisons on poussé à la création de communauté. Vos informations données servent à améliorer l'expérience utilisateur, il ne sont en aucun cas utilisé par d'autres sites externe. La sécurité des enfants par la mise en place de TAG et de filtration permettent grâce à l'age de voir tel sujet ou telle page. La sécurité des utilisateurs contre le harcèlement, le terrorisme et autres problèmes pouvant être rencontré des autres sites web passe par une surveillance des posts par les administrateurs du site et les services de sécurité française.  </p>
             </div>
-            <div class="col-sm-6 text-center">
+            <div class="col-sm-6 text-center order-three">
                 <p class="question p-5">Pourquoi avoir créé Communauté ?</p>
             </div>
-            <div class="col-sm-6 text-center">
+            <div class="col-sm-6 text-center order-five">
                 <p class="question p-5">Les pubs pour entretenir le site !</p>
             </div>
-            <div class="col-sm-6 text-justify">
+            <div class="col-sm-6 text-justify order-six">
                 <p class="response p-5">Pour permettre au site d'être gratuit et entretenu, nous utilisons un système de publicité. Ces publicités ne sont pas intrusif, une publicité par page choisie par vos soins grâce aux paramètres de votre compte vous permettant d'avoir des publicités sur les sujet qui vous intéresse.</p>
             </div>
         </div>

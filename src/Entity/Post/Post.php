@@ -29,31 +29,31 @@ class Post
     private $likePost = [];
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="postId")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $userId;
+    private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity=CommentPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=CommentPost::class, inversedBy="posts", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $commentPost;
 
     /**
-     * @ORM\OneToOne(targetEntity=LinkPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=LinkPost::class, inversedBy="posts", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $linkPost;
 
     /**
-     * @ORM\OneToOne(targetEntity=PicturePost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=PicturePost::class, inversedBy="posts", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $picturePost;
 
     /**
-     * @ORM\OneToOne(targetEntity=VideoPost::class, inversedBy="postId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=VideoPost::class, inversedBy="posts", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $videoPost;
@@ -87,14 +87,14 @@ class Post
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUsers(): ?User
     {
-        return $this->userId;
+        return $this->users;
     }
 
-    public function setUserId(?User $userId): self
+    public function setUsers(?User $users): self
     {
-        $this->userId = $userId;
+        $this->users = $users;
 
         return $this;
     }

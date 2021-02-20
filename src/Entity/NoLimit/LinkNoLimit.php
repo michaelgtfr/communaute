@@ -21,31 +21,31 @@ class LinkNoLimit extends AbstractLink
     /**
      * @ORM\OneToOne(targetEntity=NoLimit::class, mappedBy="linkNoLimit", cascade={"persist", "remove"})
      */
-    private $noLimitId;
+    private $noLimits;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNoLimitId(): ?NoLimit
+    public function getNoLimits(): ?NoLimit
     {
-        return $this->noLimitId;
+        return $this->noLimits;
     }
 
-    public function setNoLimitId(?NoLimit $noLimitId): self
+    public function setNoLimits(?NoLimit $noLimits): self
     {
         // unset the owning side of the relation if necessary
-        if ($noLimitId === null && $this->noLimitId !== null) {
-            $this->noLimitId->setLinkNoLimit(null);
+        if ($noLimits === null && $this->noLimits !== null) {
+            $this->noLimits->setLinkNoLimit(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($noLimitId !== null && $noLimitId->getLinkNoLimit() !== $this) {
-            $noLimitId->setLinkNoLimit($this);
+        if ($noLimits !== null && $noLimits->getLinkNoLimit() !== $this) {
+            $noLimits->setLinkNoLimit($this);
         }
 
-        $this->noLimitId = $noLimitId;
+        $this->noLimits = $noLimits;
 
         return $this;
     }

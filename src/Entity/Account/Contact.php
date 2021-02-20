@@ -23,6 +23,11 @@ class Contact
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=60)
+     */
+    private $username;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $content;
@@ -45,6 +50,18 @@ class Contact
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

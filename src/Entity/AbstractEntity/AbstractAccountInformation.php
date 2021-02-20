@@ -38,12 +38,23 @@ abstract class AbstractAccountInformation
     protected $dateLastConnection;
 
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string", length=60)
+     * @ORM\Column(type="string", length=150)
      */
     protected $password;
 
     protected $passwordConfirm;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $confirmationKey;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $confirmation;
+
+    protected $termsOfUse;
 
     public function getName(): ?string
     {
@@ -150,5 +161,41 @@ abstract class AbstractAccountInformation
             return true;
         }
         return false;
+    }
+
+    public function getConfirmationKey(): ?string
+    {
+        return $this->confirmationKey;
+    }
+
+    public function setConfirmationKey(string $confirmationKey): self
+    {
+        $this->confirmationKey = $confirmationKey;
+
+        return $this;
+    }
+
+    public function getConfirmation(): ?int
+    {
+        return $this->confirmation;
+    }
+
+    public function setConfirmation(int $confirmation): self
+    {
+        $this->confirmation = $confirmation;
+
+        return $this;
+    }
+
+    public function getTermsOfUse(): ?bool
+    {
+        return $this->termsOfUse;
+    }
+
+    public function setTermsOfUse(?bool $termsOfUse): self
+    {
+        $this->termsOfUse = $termsOfUse;
+
+        return $this;
     }
 }

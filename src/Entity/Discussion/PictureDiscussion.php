@@ -21,31 +21,31 @@ class PictureDiscussion extends AbstractFiles
     /**
      * @ORM\OneToOne(targetEntity=Discussion::class, mappedBy="pictureDiscussion", cascade={"persist", "remove"})
      */
-    private $discussionId;
+    private $discussions;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getDiscussionId(): ?Discussion
+    public function getDiscussions(): ?Discussion
     {
-        return $this->discussionId;
+        return $this->discussions;
     }
 
-    public function setDiscussionId(?Discussion $discussionId): self
+    public function setDiscussions(?Discussion $discussions): self
     {
         // unset the owning side of the relation if necessary
-        if ($discussionId === null && $this->discussionId !== null) {
-            $this->discussionId->setPictureDiscussion(null);
+        if ($discussions === null && $this->discussions !== null) {
+            $this->discussions->setPictureDiscussion(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($discussionId !== null && $discussionId->getPictureDiscussion() !== $this) {
-            $discussionId->setPictureDiscussion($this);
+        if ($discussions !== null && $discussions->getPictureDiscussion() !== $this) {
+            $discussions->setPictureDiscussion($this);
         }
 
-        $this->discussionId = $discussionId;
+        $this->discussions = $discussions;
 
         return $this;
     }

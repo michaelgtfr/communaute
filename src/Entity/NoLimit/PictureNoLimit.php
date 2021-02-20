@@ -21,31 +21,31 @@ class PictureNoLimit extends AbstractFiles
     /**
      * @ORM\OneToOne(targetEntity=NoLimit::class, mappedBy="pictureNoLimit", cascade={"persist", "remove"})
      */
-    private $noLimitId;
+    private $noLimits;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNoLimitId(): ?NoLimit
+    public function getNoLimits(): ?NoLimit
     {
-        return $this->noLimitId;
+        return $this->noLimits;
     }
 
-    public function setNoLimitId(?NoLimit $noLimitId): self
+    public function setNoLimits(?NoLimit $noLimits): self
     {
         // unset the owning side of the relation if necessary
-        if ($noLimitId === null && $this->noLimitId !== null) {
-            $this->noLimitId->setPictureNoLimit(null);
+        if ($noLimits === null && $this->noLimits !== null) {
+            $this->noLimits->setPictureNoLimit(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($noLimitId !== null && $noLimitId->getPictureNoLimit() !== $this) {
-            $noLimitId->setPictureNoLimit($this);
+        if ($noLimits !== null && $noLimits->getPictureNoLimit() !== $this) {
+            $noLimits->setPictureNoLimit($this);
         }
 
-        $this->noLimitId = $noLimitId;
+        $this->noLimits = $noLimits;
 
         return $this;
     }

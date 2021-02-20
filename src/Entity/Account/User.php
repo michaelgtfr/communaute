@@ -14,7 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
  */
 class User extends AbstractAccountInformation implements UserInterface
 {
@@ -51,42 +50,44 @@ class User extends AbstractAccountInformation implements UserInterface
     private $address;
 
     /**
-     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="userId")
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="users")
      */
-    private $postId;
+    private $posts;
 
     /**
-     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="userId")
+     * @ORM\OneToMany(targetEntity=Discussion::class, mappedBy="users")
      */
-    private $discussionId;
+    private $discussions;
 
     /**
-     * @ORM\OneToOne(targetEntity=AccountParameter::class, inversedBy="userId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=AccountParameter::class, inversedBy="users", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $accountParameterId;
+    private $accountParameters;
 
     /**
-     * @ORM\OneToMany(targetEntity=PictureUser::class, mappedBy="userId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=PictureUser::class, mappedBy="users", orphanRemoval=true, cascade={"persist", "remove"})
      */
-    private $pictureUserId;
+    private $pictureUsers;
 
     /**
-     * @ORM\OneToOne(targetEntity=Friends::class, inversedBy="userId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=Friends::class, inversedBy="users", cascade={"persist", "remove"})
      */
-    private $friendsId;
+    private $friends;
 
     /**
-     * @ORM\OneToMany(targetEntity=NoLimit::class, mappedBy="userId")
+     * @ORM\OneToMany(targetEntity=NoLimit::class, mappedBy="users")
      */
-    private $noLimitId;
+    private $noLimits;
+
+    private $completePictureName;
 
     public function __construct()
     {
-        $this->postId = new ArrayCollection();
-        $this->discussionId = new ArrayCollection();
-        $this->pictureUserId = new ArrayCollection();
-        $this->noLimitId = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+        $this->discussions = new ArrayCollection();
+        $this->pictureUsers = new ArrayCollection();
+        $this->noLimits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -186,27 +187,27 @@ class User extends AbstractAccountInformation implements UserInterface
     /**
      * @return Collection|Post[]
      */
-    public function getPostId(): Collection
+    public function getPosts(): Collection
     {
-        return $this->postId;
+        return $this->posts;
     }
 
-    public function addPostId(Post $postId): self
+    public function addPosts(Post $posts): self
     {
-        if (!$this->postId->contains($postId)) {
-            $this->postId[] = $postId;
-            $postId->setUserId($this);
+        if (!$this->posts->contains($posts)) {
+            $this->posts[] = $posts;
+            $posts->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removePostId(Post $postId): self
+    public function removePosts(Post $posts): self
     {
-        if ($this->postId->removeElement($postId)) {
+        if ($this->posts->removeElement($posts)) {
             // set the owning side to null (unless already changed)
-            if ($postId->getUserId() === $this) {
-                $postId->setUserId(null);
+            if ($posts->getUsers() === $this) {
+                $posts->setUsers(null);
             }
         }
 
@@ -216,41 +217,42 @@ class User extends AbstractAccountInformation implements UserInterface
     /**
      * @return Collection|Discussion[]
      */
-    public function getDiscussionId(): Collection
+    public function getDiscussions(): Collection
     {
-        return $this->discussionId;
+        return $this->discussions;
     }
 
-    public function addDiscussionId(Discussion $discussionId): self
+    public function addDiscussions(Discussion $discussions): self
     {
-        if (!$this->discussionId->contains($discussionId)) {
-            $this->discussionId[] = $discussionId;
-            $discussionId->setUserId($this);
+        if (!$this->discussions->contains($discussions)) {
+            $this->discussions[] = $discussions;
+            $discussions->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeDiscussionId(Discussion $discussionId): self
+    public function removeDiscussions(Discussion $discussions): self
     {
-        if ($this->discussionId->removeElement($discussionId)) {
+        if ($this->discussions->removeElement($discussions)) {
             // set the owning side to null (unless already changed)
-            if ($discussionId->getUserId() === $this) {
-                $discussionId->setUserId(null);
+            if ($discussions->getUsers() === $this) {
+                $discussions->setUsers(null);
             }
         }
 
         return $this;
     }
 
-    public function getAccountParameterId(): ?AccountParameter
+
+    public function getAccountParameters(): ?AccountParameter
     {
-        return $this->accountParameterId;
+        return $this->accountParameters;
     }
 
-    public function setAccountParameterId(AccountParameter $accountParameterId): self
+    public function setAccountParameters(AccountParameter $accountParameters): self
     {
-        $this->accountParameterId = $accountParameterId;
+        $this->accountParameters = $accountParameters;
 
         return $this;
     }
@@ -258,41 +260,41 @@ class User extends AbstractAccountInformation implements UserInterface
     /**
      * @return Collection|PictureUser[]
      */
-    public function getPictureUserId(): Collection
+    public function getPictureUsers(): Collection
     {
-        return $this->pictureUserId;
+        return $this->pictureUsers;
     }
 
-    public function addPictureUserId(PictureUser $pictureUserId): self
+    public function addPictureUsers(PictureUser $pictureUsers): self
     {
-        if (!$this->pictureUserId->contains($pictureUserId)) {
-            $this->pictureUserId[] = $pictureUserId;
-            $pictureUserId->setUserId($this);
+        if (!$this->pictureUsers->contains($pictureUsers)) {
+            $this->pictureUsers[] = $pictureUsers;
+            $pictureUsers->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removePictureUserId(PictureUser $pictureUserId): self
+    public function removePictureUsers(PictureUser $pictureUsers): self
     {
-        if ($this->pictureUserId->removeElement($pictureUserId)) {
+        if ($this->pictureUsers->removeElement($pictureUsers)) {
             // set the owning side to null (unless already changed)
-            if ($pictureUserId->getUserId() === $this) {
-                $pictureUserId->setUserId(null);
+            if ($pictureUsers->getUsers() === $this) {
+                $pictureUsers->setUsers(null);
             }
         }
 
         return $this;
     }
 
-    public function getFriendsId(): ?Friends
+    public function getFriends(): ?Friends
     {
-        return $this->friendsId;
+        return $this->friends;
     }
 
-    public function setFriendsId(?Friends $friendsId): self
+    public function setFriends(?Friends $friends): self
     {
-        $this->friendsId = $friendsId;
+        $this->friends = $friends;
 
         return $this;
     }
@@ -300,29 +302,41 @@ class User extends AbstractAccountInformation implements UserInterface
     /**
      * @return Collection|NoLimit[]
      */
-    public function getNoLimitId(): Collection
+    public function getNoLimits(): Collection
     {
-        return $this->noLimitId;
+        return $this->noLimits;
     }
 
-    public function addNoLimitId(NoLimit $noLimitId): self
+    public function addNoLimits(NoLimit $noLimits): self
     {
-        if (!$this->noLimitId->contains($noLimitId)) {
-            $this->noLimitId[] = $noLimitId;
-            $noLimitId->setUserId($this);
+        if (!$this->noLimits->contains($noLimits)) {
+            $this->noLimits[] = $noLimits;
+            $noLimits->setUsers($this);
         }
 
         return $this;
     }
 
-    public function removeNoLimitId(NoLimit $noLimitId): self
+    public function removeNoLimits(NoLimit $noLimits): self
     {
-        if ($this->noLimitId->removeElement($noLimitId)) {
+        if ($this->noLimits->removeElement($noLimits)) {
             // set the owning side to null (unless already changed)
-            if ($noLimitId->getUserId() === $this) {
-                $noLimitId->setUserId(null);
+            if ($noLimits->getUsers() === $this) {
+                $noLimits->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCompletePictureName(): ?string
+    {
+        return $this->completePictureName;
+    }
+
+    public function setCompletePictureName(?string $completePictureName): self
+    {
+        $this->completePictureName = $completePictureName;
 
         return $this;
     }

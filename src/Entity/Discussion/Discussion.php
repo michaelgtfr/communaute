@@ -25,27 +25,27 @@ class Discussion
     private $dateCreate;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="discussionId")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="discussions")
      */
-    private $userId;
+    private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity=CommentDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=CommentDiscussion::class, inversedBy="discussions", cascade={"persist", "remove"})
      */
     private $commentDiscussion;
 
     /**
-     * @ORM\OneToOne(targetEntity=LinkDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=LinkDiscussion::class, inversedBy="discussions", cascade={"persist", "remove"})
      */
     private $linkDiscussion;
 
     /**
-     * @ORM\OneToOne(targetEntity=VideoDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=VideoDiscussion::class, inversedBy="discussions", cascade={"persist", "remove"})
      */
     private $videoDiscussion;
 
     /**
-     * @ORM\OneToOne(targetEntity=PictureDiscussion::class, inversedBy="discussionId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=PictureDiscussion::class, inversedBy="discussions", cascade={"persist", "remove"})
      */
     private $pictureDiscussion;
 
@@ -66,14 +66,14 @@ class Discussion
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUsers(): ?User
     {
-        return $this->userId;
+        return $this->users;
     }
 
-    public function setUserId(?User $userId): self
+    public function setUsers(?User $users): self
     {
-        $this->userId = $userId;
+        $this->users = $users;
 
         return $this;
     }

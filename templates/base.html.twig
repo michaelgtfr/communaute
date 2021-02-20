@@ -16,36 +16,51 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link mr-3 active" href="{{ path('app_login') }}">Connexion<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link mr-3" href="#">Inscription</a>
-                <a class="nav-item nav-link mr-3" href="#">Contact</a>
+                <a class="nav-item nav-link mr-3" href="{{ path('app_register') }}">Inscription</a>
+                <a class="nav-item nav-link mr-3" href="{{ path('app_contact') }}">Contact</a>
             </div>
         </div>
     </nav>
-        {% block body %}{% endblock %}
+
+    <!--flash message-->
+    {% for message in app.flashes('success') %}
+        <div class = "alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        <div class = "alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
     <footer class="container-fluid">
         <div class="footer row">
-            <ul class="nav col-sm-4 p-4">
-                <li class="nav-item col-sm-10 offset-sm-2">
+            <ul class="nav col-sm-4 col-xs-12 p-4">
+                <li class="nav-item col-sm-10 offset-sm-2 col-xs-12">
                     <a class="nav-link active" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
                 </li>
-                <li class="nav-item col-sm-10 offset-sm-2">
-                    <a class="nav-link" href="#">Inscription</a>
+                <li class="nav-item col-sm-10 offset-sm-2 col-xs-12">
+                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
                 </li>
-                <li class="nav-item col-sm-10 offset-sm-2">
-                    <a class="nav-link" href="#">Contact</a>
+                <li class="nav-item col-sm-10 offset-sm-2 col-xs-12">
+                    <a class="nav-link" href="{{ path('app_contact') }}">Contact</a>
                 </li>
             </ul>
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-xs-12">
                 <img class="col-sm-12" src="{{ asset('imgApp/logo.png') }}" alt="logo of application" />
             </div>
-            <ul class="nav col-sm-4 p-4">
-                <li class="nav-item col-sm-8 offset-sm-4">
+            <ul class="nav col-sm-4 col-xs-12 p-4">
+                <li class="nav-item col-sm-8 offset-sm-4 col-xs-12">
                     <a class="nav-link active" aria-current="page" href="#">Condition d'utilisation</a>
                 </li>
-                <li class="nav-item col-sm-8 offset-sm-4">
+                <li class="nav-item col-sm-8 offset-sm-4 col-xs-12">
                     <a class="nav-link" href="#">Espace entreprise</a>
                 </li>
-                <li class="nav-item col-sm-8 offset-sm-4">
+                <li class="nav-item col-sm-8 offset-sm-4 col-xs-12">
                     <a class="nav-link" href="#">Espace administration</a>
                 </li>
             </ul>

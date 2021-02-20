@@ -33,9 +33,9 @@ class AccountParameter
     private $choiceParameter = [];
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, mappedBy="accountParameterId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="accountParameters", cascade={"persist", "remove"})
      */
-    private $userId;
+    private $users;
 
     public function getId(): ?int
     {
@@ -78,19 +78,19 @@ class AccountParameter
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUsers(): ?User
     {
-        return $this->userId;
+        return $this->users;
     }
 
-    public function setUserId(User $userId): self
+    public function setUsers(User $users): self
     {
         // set the owning side of the relation if necessary
-        if ($userId->getAccountParameterId() !== $this) {
-            $userId->setAccountParameterId($this);
+        if ($users->getAccountParameters() !== $this) {
+            $users->setAccountParameters($this);
         }
 
-        $this->userId = $userId;
+        $this->users = $users;
 
         return $this;
     }

@@ -19,24 +19,24 @@ class NotePicturePost extends AbstractNotePost
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=PicturePost::class, inversedBy="notePicturePostId")
+     * @ORM\ManyToOne(targetEntity=PicturePost::class, inversedBy="notePicturePosts")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $picturePostId;
+    private $picturePosts;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPicturePostId(): ?PicturePost
+    public function getPicturePosts(): ?PicturePost
     {
-        return $this->picturePostId;
+        return $this->picturePosts;
     }
 
-    public function setPicturePostId(?PicturePost $picturePostId): self
+    public function setPicturePosts(?PicturePost $picturePosts): self
     {
-        $this->picturePostId = $picturePostId;
+        $this->picturePosts = $picturePosts;
 
         return $this;
     }

@@ -49,25 +49,25 @@ class Publicity
      * @ORM\ManyToOne(targetEntity=Editor::class, inversedBy="publicity")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $editorId;
+    private $editors;
 
     /**
-     * @ORM\OneToMany(targetEntity=PicturePub::class, mappedBy="publicityId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=PicturePub::class, mappedBy="publicitys", orphanRemoval=true)
      */
     private $picturePub;
 
     /**
-     * @ORM\OneToMany(targetEntity=VideoPub::class, mappedBy="publicityId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=VideoPub::class, mappedBy="publicitys", orphanRemoval=true)
      */
     private $videoPub;
 
     /**
-     * @ORM\OneToMany(targetEntity=LinkPub::class, mappedBy="publicityId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=LinkPub::class, mappedBy="publicitys", orphanRemoval=true)
      */
     private $linkPub;
 
     /**
-     * @ORM\OneToMany(targetEntity=CommentPub::class, mappedBy="publicityId", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=CommentPub::class, mappedBy="publicitys", orphanRemoval=true)
      */
     private $commentPub;
 
@@ -144,14 +144,14 @@ class Publicity
         return $this;
     }
 
-    public function getEditorId(): ?Editor
+    public function getEditors(): ?Editor
     {
-        return $this->editorId;
+        return $this->editors;
     }
 
-    public function setEditorId(?Editor $editorId): self
+    public function setEditors(?Editor $editors): self
     {
-        $this->editorId = $editorId;
+        $this->editors = $editors;
 
         return $this;
     }
@@ -168,7 +168,7 @@ class Publicity
     {
         if (!$this->picturePub->contains($picturePub)) {
             $this->picturePub[] = $picturePub;
-            $picturePub->setPublicityId($this);
+            $picturePub->setPublicitys($this);
         }
 
         return $this;
@@ -178,8 +178,8 @@ class Publicity
     {
         if ($this->picturePub->removeElement($picturePub)) {
             // set the owning side to null (unless already changed)
-            if ($picturePub->getPublicityId() === $this) {
-                $picturePub->setPublicityId(null);
+            if ($picturePub->getPublicitys() === $this) {
+                $picturePub->setPublicitys(null);
             }
         }
 
@@ -198,7 +198,7 @@ class Publicity
     {
         if (!$this->videoPub->contains($videoPub)) {
             $this->videoPub[] = $videoPub;
-            $videoPub->setPublicityId($this);
+            $videoPub->setPublicitys($this);
         }
 
         return $this;
@@ -208,8 +208,8 @@ class Publicity
     {
         if ($this->videoPub->removeElement($videoPub)) {
             // set the owning side to null (unless already changed)
-            if ($videoPub->getPublicityId() === $this) {
-                $videoPub->setPublicityId(null);
+            if ($videoPub->getPublicitys() === $this) {
+                $videoPub->setPublicitys(null);
             }
         }
 
@@ -228,7 +228,7 @@ class Publicity
     {
         if (!$this->linkPub->contains($linkPub)) {
             $this->linkPub[] = $linkPub;
-            $linkPub->setPublicityId($this);
+            $linkPub->setPublicitys($this);
         }
 
         return $this;
@@ -238,8 +238,8 @@ class Publicity
     {
         if ($this->linkPub->removeElement($linkPub)) {
             // set the owning side to null (unless already changed)
-            if ($linkPub->getPublicityId() === $this) {
-                $linkPub->setPublicityId(null);
+            if ($linkPub->getPublicitys() === $this) {
+                $linkPub->setPublicitys(null);
             }
         }
 
@@ -258,7 +258,7 @@ class Publicity
     {
         if (!$this->commentPub->contains($commentPub)) {
             $this->commentPub[] = $commentPub;
-            $commentPub->setPublicityId($this);
+            $commentPub->setPublicitys($this);
         }
 
         return $this;
@@ -268,8 +268,8 @@ class Publicity
     {
         if ($this->commentPub->removeElement($commentPub)) {
             // set the owning side to null (unless already changed)
-            if ($commentPub->getPublicityId() === $this) {
-                $commentPub->setPublicityId(null);
+            if ($commentPub->getPublicitys() === $this) {
+                $commentPub->setPublicitys(null);
             }
         }
 

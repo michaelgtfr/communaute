@@ -24,27 +24,27 @@ class NoLimit
     private $dateCreate;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="noLimitId")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="noLimits")
      */
-    private $userId;
+    private $users;
 
     /**
-     * @ORM\OneToOne(targetEntity=CommentNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=CommentNoLimit::class, inversedBy="noLimits", cascade={"persist", "remove"})
      */
     private $commentNoLimit;
 
     /**
-     * @ORM\OneToOne(targetEntity=LinkNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=LinkNoLimit::class, inversedBy="noLimits", cascade={"persist", "remove"})
      */
     private $linkNoLimit;
 
     /**
-     * @ORM\OneToOne(targetEntity=VideoNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=VideoNoLimit::class, inversedBy="noLimits", cascade={"persist", "remove"})
      */
     private $videoNoLimit;
 
     /**
-     * @ORM\OneToOne(targetEntity=PictureNoLimit::class, inversedBy="noLimitId", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity=PictureNoLimit::class, inversedBy="noLimits", cascade={"persist", "remove"})
      */
     private $pictureNoLimit;
 
@@ -65,14 +65,14 @@ class NoLimit
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUsers(): ?User
     {
-        return $this->userId;
+        return $this->users;
     }
 
-    public function setUserId(?User $userId): self
+    public function setUsers(?User $users): self
     {
-        $this->userId = $userId;
+        $this->users = $users;
 
         return $this;
     }

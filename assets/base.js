@@ -5,10 +5,15 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you import will output into a single css file (base.css in this case)
-import './styles/base.css';
+// any CSS you import will output into a single css file (base.scss in this case)
+import './styles/base.scss';
+
 
 // start the Stimulus application
 import './bootstrap';
 
-import $ from 'jquery';
+require('bootstrap/dist/css/bootstrap.css');
+import bsCustomFileInput from 'bs-custom-file-input';
+
+bsCustomFileInput.init();
+
