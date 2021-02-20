@@ -12,12 +12,13 @@ namespace App\Treatment;
 use App\Entity\Account\Contact;
 use App\Entity\Account\User;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ContactTreatment
 {
     private $em;
 
-    public function treatment(Contact $contact, EntityManagerInterface $em, $session)
+    public function treatment(Contact $contact, EntityManagerInterface $em,Session $session)
     {
         $this->em = $em;
         $existAccount = $this->existAccount($contact->getEmail());
