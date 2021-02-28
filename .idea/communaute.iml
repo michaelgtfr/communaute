@@ -29,6 +29,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink-browserkit-driver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink-debug-extension" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/mink-extension" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friends-of-behat/symfony-extension" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofphp/proxy-manager-lts" />

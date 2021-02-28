@@ -123,6 +123,9 @@
     "friends-of-behat/mink-browserkit-driver": {
         "version": "v1.5.0"
     },
+    "friends-of-behat/mink-debug-extension": {
+        "version": "v2.0.1"
+    },
     "friends-of-behat/mink-extension": {
         "version": "v2.5.0"
     },

@@ -5,6 +5,8 @@ default:
         - App\Tests\Behat\FeatureContext
 
   extensions:
+    FriendsOfBehat\MinkDebugExtension:
+      directory: './var/behatLog'
     FriendsOfBehat\SymfonyExtension: ~
     Behat\MinkExtension:
       base_url: http://localhost:8000/

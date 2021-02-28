@@ -4,10 +4,13 @@ php:
 services:
   - mysql
 
-script:
+before_script:
   - composer install
+
+script:
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:update --force --env=test
   - vendor/bin/behat
-  - vendor/bin/phpunit
-  - vendor/bin/phpunit --coverage-text
+  - bin/behat --strict
+  - phpunit
+  - phpunit --coverage-text
