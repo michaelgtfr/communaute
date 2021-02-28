@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "behat/behat": "^3.8",
+        "behat/mink-goutte-driver": "^1.2",
         "composer/package-versions-deprecated": "1.11.99.1",
         "dama/doctrine-test-bundle": "^6.5",
         "doctrine/annotations": "^1.0",
