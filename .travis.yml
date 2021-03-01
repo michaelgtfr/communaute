@@ -15,6 +15,6 @@ script:
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:update --force --env=test
   - php bin/console cache:clear --env=test
-  - vendor/bin/behat features/login.feature
+  - vendor/bin/behat -V
   - phpunit
   - phpunit --coverage-text
