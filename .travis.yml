@@ -12,9 +12,9 @@ before_script:
 
 
 script:
-  - php bin/console doctrine:database:create
-  - php bin/console doctrine:schema:update --force
-  - php bin/console cache:clear
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:update --force --env=test
+  - php bin/console cache:clear --env=test
   - vendor/bin/behat
   - vendor/bin/behat --strict
   - phpunit
