@@ -14,6 +14,7 @@ before_script:
 script:
   - php bin/console doctrine:database:create
   - php bin/console doctrine:schema:update --force
+  - php bin/console cache:clear
   - vendor/bin/behat
   - vendor/bin/behat --strict
   - phpunit
