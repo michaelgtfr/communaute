@@ -4,9 +4,12 @@ php:
 services:
   - mysql
 
+notifications:
+    email: false
+
 before_script:
   - composer install
-  - export PATH=$PATH$
+  - export PATH=$PATH
 
 script:
   - php bin/console doctrine:database:create --env=test
