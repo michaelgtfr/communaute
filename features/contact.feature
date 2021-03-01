@@ -4,7 +4,7 @@ Feature:
   I want to have these scenarios
 
   Scenario: display the contact page
-    When I go to "contact"
+    When I am on "/contact"
     Then the response status code should be 200
 
   Scenario: send the contact message
