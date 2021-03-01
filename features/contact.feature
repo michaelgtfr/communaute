@@ -3,6 +3,10 @@ Feature:
   As a user
   I want to have these scenarios
 
+  Scenario: display the contact page
+    When go to "/contact"
+    Then the response status code should be 200
+
   Scenario: send the contact message
     Given I am on "/contact"
     And I fill in "Email" with "email@gmail.com"
