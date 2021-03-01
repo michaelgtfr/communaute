@@ -6,6 +6,7 @@ services:
 
 before_script:
   - composer install
+  - export PATH=http://localhost:8000/
 
 script:
   - php bin/console doctrine:database:create --env=test
