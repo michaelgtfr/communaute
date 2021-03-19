@@ -1,19 +1,23 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mickd
- * Date: 18/01/2021
- * Time: 20:49
+ * User: michaelgt
  */
 
 namespace App\Mailer;
-
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 
 class RegisterMailer
 {
+    /**
+     * Allows the send of a message for the registration
+     * @param MailerInterface $mailer
+     * @param $addressUser
+     * @param $key
+     * @param $host
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     */
     public function mailer(MailerInterface $mailer, $addressUser, $key, $host)
     {
         $email = (new TemplatedEmail())

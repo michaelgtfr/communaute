@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mickd
- * Date: 18/01/2021
- * Time: 18:09
+ * User: michaelgt
  */
 
 namespace App\Controller;
@@ -26,6 +23,8 @@ use Twig\Environment;
 class RegisterController
 {
     /**
+     * Functional test performed in the register.feature file and in the LoginControllerTest file in the Tests folder
+     * Allows the display of the registration form and its processing
      * @Route("/register", name="app_register")
      * @param Request $request
      * @param FormFactoryInterface $form
