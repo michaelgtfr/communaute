@@ -1,13 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mickd
- * Date: 22/01/2021
- * Time: 20:18
+ * User: michaelgt
  */
 
 namespace App\Controller;
-
 
 use App\Entity\Account\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,7 +16,8 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class AccountConfirmationController
 {
     /**
-     * Functional test performed in register.feature file
+     * Functional test performed in the register.feature file and in the RegisterControllerTest file in the Tests folder
+     * Used to confirm the creation of a user account
      * @Route("/confirmation/{email}/confirmationKey/{confirmationKey}", name="app_account_confirmation")
      * @ParamConverter("user", options={"mapping": {"email": "email", "confirmationKey": "confirmationKey"}})
      * @param User $user

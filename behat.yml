@@ -1,0 +1,16 @@
+default:
+  suites:
+    default:
+      contexts:
+        - App\Tests\Behat\FeatureContext
+
+  extensions:
+    FriendsOfBehat\MinkDebugExtension:
+      directory: './tests/Behat/log'
+    FriendsOfBehat\SymfonyExtension: ~
+    Behat\MinkExtension:
+      base_url: 'http://127.0.0.1:8000/'
+      goutte: ~
+      sessions:
+        symfony:
+          symfony: ~

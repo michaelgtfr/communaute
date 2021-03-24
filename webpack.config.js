@@ -18,7 +18,7 @@ Encore
      * ENTRY CONFIG
      *
      * Each entry will result in one JavaScript file (e.g. base.js)
-     * and one CSS file (e.g. base.scss) if your JavaScript imports CSS.
+     * and one CSS file (e.g. base.css) if your JavaScript imports CSS.
      */
     .addEntry('base', './assets/base.js')
     .addEntry('login', './assets/login.js')

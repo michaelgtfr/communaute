@@ -1,13 +1,9 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mickd
- * Date: 01/02/2021
- * Time: 17:14
+ * User: michaelgt
  */
 
 namespace App\Controller;
-
 
 use App\Entity\Account\Contact;
 use App\Form\ContactForm;
@@ -25,6 +21,8 @@ use Twig\Environment;
 class ContactController
 {
     /**
+     * Functional test performed in the contact.feature file and in the ContactControllerTest file in the Tests folder
+     * Allows the display of the form and its processing
      * @Route("/contact", name="app_contact")
      * @param Request $request
      * @param FormFactoryInterface $form

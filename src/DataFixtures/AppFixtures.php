@@ -1,4 +1,7 @@
 <?php
+/**
+ * User: michaelgt
+ */
 
 namespace App\DataFixtures;
 
@@ -17,6 +20,10 @@ class AppFixtures extends Fixture
         $this->encoder = $encoder;
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @throws \Exception
+     */
     public function load(ObjectManager $manager)
     {
         $accountParameter = new AccountParameter();

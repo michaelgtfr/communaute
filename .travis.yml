@@ -4,21 +4,14 @@ php:
 services:
   - mysql
 
-
-env:
-  - SYMFONY_VERSION=5.0.*
-
 before_script:
   - composer install
-
-install:
-  - if [ "$SYMFONY_VERSION" = "5.0.*" ]; then composer require behat/behat:dev-master --no-update --no-scripts --prefer-dist; fi
-  - composer require symfony/config:${SYMFONY_VERSION} --no-update --no-scripts --prefer-dist
-  - composer update --no-progress
 
 script:
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:update --force --env=test
-  - ./vendor/bin/behat
-  - php /bin/phpunit
-  - php /bin/phpunit --coverage-text
+  - php bin/console cache:clear --env=test
+  - vendor/bin/behat
+  - phpunit
+  - phpunit --coverage-text
+
