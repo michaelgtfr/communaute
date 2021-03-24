@@ -4,12 +4,8 @@ php:
 services:
   - mysql
 
-notifications:
-    email: false
-
 before_script:
   - composer install
-
 
 script:
   - php bin/console doctrine:database:create --env=test
@@ -18,3 +14,4 @@ script:
   - vendor/bin/behat
   - phpunit
   - phpunit --coverage-text
+

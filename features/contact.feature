@@ -1,4 +1,4 @@
-Feature:
+Feature: contact
   in order to check that the features that the page works
   As a user
   I want to have these scenarios
